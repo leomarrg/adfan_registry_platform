@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'ADFAN_registry.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
-        'NAME': 'adfan_registry_db',
+        'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
         'USER': 'leomarrg',
         'PASSWORD': 'Italia1578UPRA',
-        'HOST': 'localhost',
+        'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
