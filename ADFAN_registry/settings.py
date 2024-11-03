@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'adfan_registry_db',
         'USER': 'leomarrg',
         'PASSWORD': 'Italia1578UPRA',
-        'HOST': 'localhost',
+        'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
