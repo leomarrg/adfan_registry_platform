@@ -78,9 +78,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
         'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
+        #'NAME': 'adfan_registry_db', #name for database in local server
         'USER': 'leomarrg',
         'PASSWORD': 'Italia1578UPRA',
         'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
+        #'HOST': 'localhost', #name for host in local server
         'PORT': '3306',
     }
 }
