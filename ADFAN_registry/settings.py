@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-*q$k(o@9dku(2j*mwe!gk*56awv2rh=t@*g*lzyt)e+$h7t5be
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['leomarrg.pythonanywhere.com']
+#ALLOWED_HOSTS = ['leomarrg.pythonanywhere.com'] #for running in pythonanywhere
+
+ALLOWED_HOSTS = [] #for running server locally
 
 
 # Application definition
@@ -79,12 +81,12 @@ WSGI_APPLICATION = 'ADFAN_registry.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
-        'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
-        #'NAME': 'adfan_registry_db', #name for database in local server
+        #'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
+        'NAME': 'adfan_registry_db', #name for database in local server
         'USER': 'leomarrg',
         'PASSWORD': 'Italia1578UPRA',
-        'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
-        #'HOST': 'localhost', #name for host in local server
+        #'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
+        'HOST': 'localhost', #name for host in local server
         'PORT': '3306',
     }
 }
@@ -125,8 +127,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 

@@ -1,0 +1,226 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    width: 100%; /* Full viewport width */
+    max-width: 100%; /* Ensures it doesn't overflow */
+    display: flex; /* Use flexbox to distribute child elements */
+    align-items: center; /* Vertically center the items */
+    justify-content: space-between; /* Space the elements across the width */
+    background-color: #ffffff; /* Example background color */
+    margin: 0; /* Remove any default margin */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    padding: 20px;
+}
+
+.header-item {
+    flex: 1; /* Each item takes up equal space if needed */
+    text-align: center; /* Center text inside each part */
+}
+
+.header-left {
+    text-align: left; /* Align the left part to the left */
+}
+
+.header-right {
+    text-align: right; /* Align the right part to the right */
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 50px; /* Smaller header height for smaller screens */
+    }
+}
+
+@media (min-width: 769px) {
+    header {
+        height: 70px; /* Consistent header height for larger screens */
+    }
+}
+
+/* Define Ubuntu Regular */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-weight: 400;  /* Normal weight */
+    font-style: normal;
+}
+
+/* Define Ubuntu Bold */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/static/fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: 700;  /* Bold weight */
+    font-style: normal;
+}
+
+/* Style for the text entered in the input box */
+input[type="text"],
+input[type="email"],
+input[type="date"]{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400; /* Use Ubuntu Regular */
+    border: #49a6a2 solid 4px;
+    border-radius: 10px;
+    z-index: 1;
+    text-align: center;
+}
+
+label {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700; /* Bold for labels */
+}
+
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px); /* Adjust height to fill the rest of the viewport minus header height */
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 60px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center; /* Vertically align label and input */
+    margin-bottom: 15px; /* Space between form rows */
+}
+
+form label {
+    width: 120px; /* Set a consistent width for all labels */
+    margin-right: 10px; /* Space between label and input */
+    text-align: center; /* Optional: right-align the label */
+}
+
+/* Add box styling for labels */
+.label-box {
+    display: inline-flex;
+    background-color: #49a6a2;
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    width: 80px; /* Set a consistent width for all labels */
+    height: 40px;
+    text-align: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    justify-content: center;
+}
+
+.label-box.large {
+    font-size: 18px; /* Larger font size for "Nombre" and "Apellido" */
+    padding: 5px 10px; /* Adjust padding for consistent spacing */
+}
+
+.label-box.small {
+    font-size: 14px; /* Smaller font size for other labels */
+    padding: 8px 10px; /* Adjust padding to maintain consistent spacing with smaller text */
+}
+
+form input {
+    width: 85%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.home-image {
+    position: absolute; /* Position the image relative to the viewport */
+    top: 5%; /* Align it with the top of the header */
+    left: 5%; /* Align it to the left edge */
+    height: 120px; /* Adjust the height as needed */
+    z-index: 1; /* Ensure it stays below the form elements */
+}
+
+.home-image {
+    position: absolute; /* Position the image relative to the viewport */
+    top: 8%; /* Align it with the top of the header */
+    left: 5%; /* Align it to the left edge */
+    height: 200px; /* Adjust the height as needed */
+    z-index: 1; /* Ensure it stays below the form elements */
+}
+
+.logo-image {
+    position: absolute; /* Position the image relative to the viewport */
+    top: 13%; /* Move the image down to the middle vertically */
+    left: 50%; /* Move the image to the middle horizontally */
+    transform: translate(-50%, -50%); /* Shift the image back by half of its own dimensions to achieve perfect centering */
+    height: 120px; /* Set the desired height for the image */
+    z-index: 1; /* Ensure it stays below important elements if needed */
+}
+
+.adfan-image {
+    position: absolute; /* Position the image relative to the viewport */
+    top: 5%; /* Align it with the top of the header */
+    right: 5%; /* Align it to the left edge */
+    height: 180px; /* Adjust the height as needed */
+    z-index: 4; /* Ensure it stays below the form elements */
+}
+
+.heart-image {
+    position: absolute; /* Position the image relative to the viewport */
+    bottom: -25%; /* Align it with the top of the header */
+    right: -8%; /* Align it to the left edge */
+    height: 950px; /* Adjust the height as needed */
+    z-index: 1; /* Ensure it stays below the form elements */
+    opacity: 0.3;
+}
+
+.hearts-image {
+    position: absolute; /* Position the image relative to the viewport */
+    top: 24%; /* Align it with the top of the header */
+    left: -2%; /* Align it to the left edge */
+    height: 450px; /* Adjust the height as needed */
+    z-index: 1; /* Ensure it stays below the form elements */
+    opacity: .30;
+}
+
+.preregistro-image {
+    position: absolute; /* Position the image relative to the viewport */
+    top: 27%; /* Align it with the top of the header */
+    left: 50%; /* Align it to the left edge */
+    transform: translate(-50%, -50%); /* Shift the image back by half of its own dimensions to achieve perfect centering */
+    height: 65px; /* Adjust the height as needed */
+    z-index: 1; /* Ensure it stays below the form elements */
+}
+
+.family-image {
+    position: absolute; /* Position the image relative to the viewport */
+    bottom: -2%; /* Align it with the top of the header */
+    left: 15%; /* Align it to the left edge */
+    height: 280px; /* Adjust the height as needed */
+    z-index: 1; /* Ensure it stays below the form elements */
+}
+
+
+.button-wrapper {
+    margin-left: 115px; /* Aligns with input fields, matches label width + margin */
+    width: 85%; /* Matches the width of the input fields */
+}
+
+.submit-button {
+    border: none;
+    background-color: #e9a3b8;
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: medium;
+    color: #31716e;
+    cursor: pointer;
+}
