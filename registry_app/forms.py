@@ -9,6 +9,13 @@ class AttendeeForm(forms.ModelForm):
         widgets = {
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),  # Use a date input widget
         }
+        labels = {
+        'name': 'Nombre',
+        'last_name': 'Apellidos',
+        'phone_number': 'Número de teléfono',
+        'date_of_birth': 'Fecha de nacimiento',
+        'email': 'Correo electrónico',
+    }
 
 class ReviewForm(forms.ModelForm):
     class Meta:
