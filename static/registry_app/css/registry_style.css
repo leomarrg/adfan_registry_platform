@@ -272,16 +272,15 @@ form input {
     input[type="email"],
     input[type="date"] {
         font-family: 'Ubuntu', sans-serif;
-        font-weight: 400; /* Use Ubuntu Regular */
+        font-weight: 400;
         border: #49a6a2 solid 4px;
         border-radius: 10px;
-        z-index: 1;
         text-align: center;
-        width: 85%; /* Maintain width of input fields */
-        height: 5vh; /* Proportional height for mobile */
+        width: 85%;
+        height: 5vh;
         box-sizing: border-box;
         padding: 0.5rem;
-        margin-bottom: 1.5vh; /* Space below each input field */
+        margin-bottom: 1.5vh;
     }
 
     /* Form Wrapper */
@@ -289,130 +288,125 @@ form input {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(100vh - 6.48vh); /* Height adapts with header */
+        height: calc(100vh - 6.48vh);
+        padding: 10vh 0; /* Add padding to avoid images overlapping form */
     }
 
     /* Form Container */
     .form-container {
-        padding: 4vw; /* Consistent padding */
-        max-width: 90vw; /* Keep within screen width */
+        padding: 4vw;
+        max-width: 90vw;
         width: 100%;
         text-align: center;
         box-sizing: border-box;
-        margin: 0 auto; /* Ensure horizontal centering */
-        z-index: -2;
-        background: transparent;
+        background: rgba(255, 255, 255, 0.8); /* Light transparent background for visibility */
+        z-index: 2; /* Ensure form container stays in front of other elements */
     }
 
     /* Form Row */
     .form-row {
         display: flex;
-        flex-direction: column; /* Stack label and input vertically for better mobile usability */
+        flex-direction: column;
         align-items: center;
-        margin-bottom: 3vh; /* Maintain space between rows */
+        margin-bottom: 3vh;
     }
 
     /* Label Styling */
     form label {
-        margin-bottom: 0.5rem; /* Space below label */
+        margin-bottom: 0.5rem;
         text-align: center;
-        z-index: 1;
+        z-index: 2;
     }
 
     /* Label Box */
     .label-box {
         display: inline-flex;
         background-color: #49a6a2;
-        padding: 0.5vh 1.5vw; /* Vertical and horizontal padding */
+        padding: 0.5vh 1.5vw;
         border-radius: 1vw;
         color: #ffffff;
         font-weight: bold;
-        height: auto; /* Adjusts automatically based on content */
-        width: auto; /* No fixed width for better adaptability */
         text-align: center;
         align-items: center;
         justify-content: center;
-        z-index: 1;
+        z-index: 2;
     }
 
     .label-box.large {
-        font-size: 4vw; /* Keep larger font for label */
+        font-size: 4vw;
     }
 
     .label-box.small {
-        font-size: 3vw; /* Keep smaller font for label */
+        font-size: 3vw;
     }
 
     /* Button Wrapper */
     .button-wrapper {
-        width: 85%; /* Consistent width with input fields */
-        text-align: center; /* Center the button wrapper */
+        width: 85%;
+        text-align: center;
+        z-index: 2;
     }
 
     /* Submit Button */
     .submit-button {
         border: none;
         background-color: #e9a3b8;
-        width: 70%; /* Adjust width for a proportional appearance */
-        height: 5vh; /* Maintain height for mobile */
-        border-radius: 1rem; /* Consistent border-radius */
+        width: 70%;
+        height: 5vh;
+        border-radius: 1rem;
         font-family: 'Ubuntu', sans-serif;
         font-weight: 700;
         font-size: 4vw;
         color: #31716e;
         cursor: pointer;
-        z-index: -3;
+        z-index: 2;
     }
 
     /* Responsive Image Styling */
 
     /* Home Image */
     .home-image {
-        position: relative;
-        margin-top: 5vh;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 10vh; /* Keep proportionate to viewport height */
+        position: absolute;
+        top: 5vh;
+        left: 5vw; /* Align to left with padding */
+        height: 10vh;
         z-index: 1;
     }
 
     /* Logo Image */
     .logo-image {
-        position: relative;
+        position: absolute;
         top: 10vh;
         left: 50%;
         transform: translateX(-50%);
-        height: 8vh; /* Proportional height */
+        height: 8vh;
         z-index: 1;
     }
 
     /* ADFAN Image */
     .adfan-image {
-        position: relative;
-        margin-top: 5vh;
-        left: 50%;
-        transform: translateX(-50%);
+        position: absolute;
+        top: 5vh;
+        right: 5vw; /* Align to right with padding */
         height: 10vh;
         z-index: 1;
     }
 
     /* Heart Image */
     .heart-image {
-        position: relative;
-        top: 5vh;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 35vh; /* Proportional height */
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 35vh;
         z-index: -10;
         opacity: 0.3;
     }
 
     /* Hearts Image */
     .hearts-image {
-        position: relative;
-        top: 10vh;
-        left: 50%;
-        transform: translateX(-50%);
+        position: absolute;
+        top: 20vh;
+        left: 0;
         height: 30vh;
         z-index: -9;
         opacity: 0.3;
@@ -421,7 +415,7 @@ form input {
     /* Preregistro Image */
     .preregistro-image {
         position: relative;
-        margin-top: 15vh;
+        margin-top: 5vh;
         left: 50%;
         transform: translateX(-50%);
         height: 6vh;
@@ -431,13 +425,14 @@ form input {
 
     /* Family Image */
     .family-image {
-        position: relative;
+        position: absolute;
         bottom: -5vh;
         left: 50%;
         transform: translateX(-50%) rotate(-23deg);
-        height: 25vh; /* Keep height proportional to the view height */
+        height: 25vh;
         z-index: -8;
         opacity: 0.3;
     }
 }
+
 
