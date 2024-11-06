@@ -11,12 +11,16 @@ def register_attendee(request):
         form = AttendeeForm(request.POST)
         if form.is_valid():
             attendee = form.save(commit=False)
-            attendee.pre_registered = True  # Mark as pre-registered
+            attendee.pre_registered = True
             attendee.save()
-            messages.success(request, "Registration successful!")  # Display success message
-            return redirect('register_attendee')  # Redirect to the same registration page to refresh the form
+            messages.success(request, "¡Registro exitoso!")  # Display success message
+            return redirect('register_attendee')
+        else:
+            # Display an error message if email is already in use or other validation errors
+            messages.error(request, "Por favor, corrija los errores en el formulario.")
     else:
         form = AttendeeForm()
+    
     return render(request, 'registry_app/register.html', {'form': form})
 
 # Same-day registration view
