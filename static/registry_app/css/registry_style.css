@@ -65,63 +65,69 @@ header {
     font-style: normal;
 }
 
-/* Style for the text entered in the input box */
-input[type="text"],
-input[type="email"],
-input[type="date"]{
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 400; /* Use Ubuntu Regular */
-    border: #49a6a2 solid 4px;
-    border-radius: 10px;
-    z-index: 1;
-    text-align: center;
-}
-
 /* Form Styling */
 .form-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 6.48vh); /* Height adapts with header */
+    height: calc(100vh - 6.48vh);
 }
 
 .form-container {
     background-color: #ffffff;
-    padding: 1.04vw; /* 20px -> 1.04vw */
-    max-width: 23.83vw; /* 400px -> 20.83vw */
+    padding: 1.04vw;
+    max-width: 23.83vw;
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    margin-top: 6.48vh; /* 60px -> 6.48vh */
+    margin-top: 6.48vh;
 }
 
 .form-row {
     display: flex;
-    align-items: center;
-    margin-bottom: 2.4vh; /* 15px -> 1.39vh */
-}
-
-form label {
-    margin-right: 10px; /* Space between label and input */
-    text-align: center; /* Optional: right-align the label */
-    z-index: 1;
+    align-items: center; /* Centrar verticalmente label e input */
+    justify-content: space-between; /* Mantener espacio entre ellos */
+    margin-bottom: 2.4vh;
+    width: 100%; /* Ancho completo */
 }
 
 /* Label Styling */
 .label-box {
-    display: inline-flex;
-    background-color: #49a6a2;
-    padding: 0.46vh 0.52vw; /* Vertical and horizontal padding */
-    border-radius: 0.74vw; /* Rounded corners */
-    color: #ffffff;
-    font-weight: bold;
-    height: 4.2vh; /* Consistent height */
-    width: 5.2vw; /* Fixed width for all labels */
-    text-align: center;
+    height: 40px; /* Igualar altura al input */
+    display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1;
+    padding: 0 1vw; /* Espaciado horizontal sin afectar altura */
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #49a6a2;
+    z-index: 1; /* Asegurar que sea visible */
 }
+
+form label {
+    margin-right: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Style for the text entered in the input box */
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400; /* Use Ubuntu Regular */
+    border: #49a6a2 solid 4px;
+    border-radius: 10px;
+    width: calc(100% - 1vw); /* Dejar algo de espacio alrededor */
+    height: 40px;
+    box-sizing: border-box;
+    padding: 4px;
+    text-align: center;
+    z-index: 1;
+}
+
+
 
 .label-box.large {
     font-size: 0.93vw; /* 18px -> 0.93vw */
