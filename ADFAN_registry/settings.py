@@ -30,10 +30,9 @@ DEBUG = True
 #ALLOWED_HOSTS = ['leomarrg.pythonanywhere.com'] #for running in pythonanywhere
 
 
-if os.getenv('DJANGO_ENV') == 'production':
-    ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
