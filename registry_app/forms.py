@@ -1,6 +1,7 @@
 # registry_app/forms.py
 from django import forms
 from .models import Attendee, Review
+from django.core.exceptions import ValidationError
 
 class AttendeeForm(forms.ModelForm):
     class Meta:
