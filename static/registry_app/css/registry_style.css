@@ -314,7 +314,22 @@ form input {
     .label-box {
         display: inline-flex;
         background-color: #49a6a2;
-        padding: 0.46vh 0.52vw; /* Vertical and horizontal padding */
+        padding: 0.46vh 1.52vw; /* Vertical and horizontal padding */
+        border-radius: 0.74vw; /* Rounded corners */
+        color: #ffffff;
+        font-weight: bold;
+        height: 4.2vh; /* Consistent height */
+        width: 15.4vw; /* Fixed width for all labels */
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
+    }
+
+    .label-box1 {
+        display: inline-flex;
+        background-color: #49a6a2;
+        padding: 0.46vh 1.52vw; /* Vertical and horizontal padding */
         border-radius: 0.74vw; /* Rounded corners */
         color: #ffffff;
         font-weight: bold;
@@ -327,11 +342,15 @@ form input {
     }
 
     .label-box.large {
-        font-size: 3.11vw; /* 18px -> 0.93vw */
+        font-size: 3.9vw; /* 18px -> 0.93vw */
+    }
+
+    .label-box1.large {
+        font-size: 3.4vw; /* 18px -> 0.93vw */
     }
 
     .label-box.small {
-        font-size: 2.60vw; /* 14px -> 0.73vw */
+        font-size: 2.90vw; /* 14px -> 0.73vw */
     }
 
     form input {
@@ -417,8 +436,8 @@ form input {
 
     .family-image {
         position: absolute;
-        bottom: -3.5vh; /* -20px -> -1.85vh */
-        left: 17vh; /* 150px -> 7.81vw */
+        bottom: -8.5vh; /* -20px -> -1.85vh */
+        left: 22vh; /* 150px -> 7.81vw */
         height: 25.93vh; /* 280px -> 25.93vh */
         z-index: -1;
         transform: rotate(-23deg);
@@ -436,7 +455,7 @@ form input {
         background-color: #e9a3b8;
         width: 23.77vw; /* 130px -> 6.77vw */
         height: 3.3vh; /* 40px -> 3.7vh */
-        border-radius: 1.26vw; /* 5px -> 0.26vw */
+        border-radius: 3.26vw; /* 5px -> 0.26vw */
         font-family: 'Ubuntu', sans-serif;
         font-weight: 700;
         font-size: 4.04vw; /* medium font size -> adjust as needed */
