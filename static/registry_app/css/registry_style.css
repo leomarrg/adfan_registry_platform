@@ -250,6 +250,7 @@ form input {
 
 
 /* Mobile-Specific Layout (for screens smaller than 768px) */
+
 @media (max-width: 768px) {
 
     @font-face {
@@ -294,6 +295,7 @@ form input {
         text-align: center;
         box-sizing: border-box;
         margin-top: 11.48vh; /* 60px -> 6.48vh */
+        z-index: -2;
     }
 
     .form-row {
@@ -415,17 +417,18 @@ form input {
 
     .family-image {
         position: absolute;
-        bottom: -10.85vh; /* -20px -> -1.85vh */
-        left: 50%; /* 150px -> 7.81vw */
-        transform: translate(-50%, -50%);
-        height: 17.93vh; /* 280px -> 25.93vh */
-        z-index: 1;
+        bottom: -3.5vh; /* -20px -> -1.85vh */
+        left: 17vh; /* 150px -> 7.81vw */
+        height: 25.93vh; /* 280px -> 25.93vh */
+        z-index: -1;
+        transform: rotate(-23deg);
     }
 
     /* Button Styling */
     .button-wrapper {
         margin-left: 14.99vw; /* 115px -> 5.99vw */
         width: 85%;
+        z-index: -1;
     }
 
     .submit-button {
@@ -439,6 +442,7 @@ form input {
         font-size: 4.04vw; /* medium font size -> adjust as needed */
         color: #31716e;
         cursor: pointer;
+        z-index: -3;
     }
 
 }
