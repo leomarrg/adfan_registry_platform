@@ -275,7 +275,7 @@ form input {
         font-weight: 400; /* Use Ubuntu Regular */
         border: #49a6a2 solid 4px;
         border-radius: 10px;
-        z-index: 1;
+        z-index: 10;
         text-align: center;
     }
 
@@ -295,7 +295,7 @@ form input {
         text-align: center;
         box-sizing: border-box;
         margin-top: 11.48vh; /* 60px -> 6.48vh */
-        z-index: -2;
+        z-index: 10;
         background: transparent;
         left: 5
     }
