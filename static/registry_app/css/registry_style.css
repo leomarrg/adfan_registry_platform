@@ -267,19 +267,16 @@ form input {
         font-style: normal;
     }
 
-    /* Ensure consistent width for all input fields */
+    /* Style for the text entered in the input box */
     input[type="text"],
     input[type="email"],
-    input[type="date"] {
-        width: 100%; /* Ensure the input fields take the full width of their container */
-        max-width: 400px; /* Limit maximum width to keep them uniform */
-        box-sizing: border-box;
+    input[type="date"]{
         font-family: 'Ubuntu', sans-serif;
-        font-weight: 400;
+        font-weight: 400; /* Use Ubuntu Regular */
         border: #49a6a2 solid 4px;
         border-radius: 10px;
+        z-index: 10;
         text-align: center;
-        margin-bottom: 15px;
     }
 
     /* Form Styling */
