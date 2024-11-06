@@ -433,7 +433,7 @@ form input {
     .button-wrapper {
         margin-left: 14.99vw; /* 115px -> 5.99vw */
         width: 85%;
-        z-index: -1;
+        z-index: 10;
     }
 
     .submit-button {
