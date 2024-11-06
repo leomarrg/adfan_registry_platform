@@ -383,7 +383,7 @@ form input {
     .adfan-image {
         position: absolute;
         top: 4.5vh; /* 60px -> 5.56vh */
-        right: 8.4vw; /* 50px -> 2.6vw */
+        right: 7.3vw; /* 50px -> 2.6vw */
         height: 9.67vh; /* 180px -> 16.67vh */
         z-index: 4;
     }
@@ -421,7 +421,7 @@ form input {
     .family-image {
         position: absolute;
         bottom: -12.5vh; /* -20px -> -1.85vh */
-        left: 35vh;
+        left: 28vh;
         transform: rotate(-23deg);
         z-index: -8;
         opacity: .3;
