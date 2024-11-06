@@ -74,7 +74,7 @@ header {
 }
 
 .form-container {
-    background-color: #ffffff;
+    background-color: transparent;
     padding: 1.04vw;
     max-width: 23.83vw;
     width: 100%;
@@ -194,7 +194,7 @@ form input {
     bottom: -22.15vh; /* -250px -> -23.15vh */
     right: -7.17vw; /* -80px -> -4.17vw */
     height: 104.96vh; /* 950px -> 87.96vh */
-    z-index: 1;
+    z-index: -1;
     opacity: 0.3;
 }
 
