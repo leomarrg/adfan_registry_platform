@@ -30,9 +30,8 @@ DEBUG = True
 #ALLOWED_HOSTS = ['leomarrg.pythonanywhere.com'] #for running in pythonanywhere
 
 
-ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
