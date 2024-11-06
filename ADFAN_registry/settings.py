@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [] #for running server locally
 
+ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
+
+
 
 # Application definition
 
