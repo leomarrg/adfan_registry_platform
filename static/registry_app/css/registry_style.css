@@ -19,7 +19,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ffffff;
+    background: transparent;
     padding: 1.04vw; /* 20px -> 1.04vw based on 1920px width */
     box-sizing: border-box;
 }
@@ -285,6 +285,7 @@ form input {
         align-items: center;
         justify-content: center;
         height: calc(100vh - 6.48vh); /* Height adapts with header */
+        
     }
 
     .form-container {
