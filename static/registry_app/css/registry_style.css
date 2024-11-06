@@ -382,7 +382,7 @@ form input {
     .logo-image {
         position: absolute;
         top: 19.04vh; /* 130px -> 12.04vh */
-        left: 50vh;
+        left: 50%;
         transform: translate(-50%, -50%);
         height: 8.1vh; /* 120px -> 11.1vh */
         z-index: 1;
@@ -417,7 +417,7 @@ form input {
 
     .preregistro-image {
         position: absolute;
-        top: 29%;
+        top: 33%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: 7.02vh; /* 65px -> 6.02vh */
