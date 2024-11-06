@@ -361,6 +361,7 @@ form input {
         font-size: 1.04vw; /* medium font size -> adjust as needed */
         color: #31716e;
         cursor: pointer;
+        z-index: 10;
     }
 
     /* Responsive Image Styling */
