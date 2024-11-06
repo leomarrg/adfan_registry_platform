@@ -29,10 +29,11 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['leomarrg.pythonanywhere.com'] #for running in pythonanywhere
 
-ALLOWED_HOSTS = [] #for running server locally
 
-ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com', '127.0.0.1' ]
-
+if os.getenv('DJANGO_ENV') == 'production':
+    ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
+else:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -81,18 +82,31 @@ WSGI_APPLICATION = 'ADFAN_registry.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
-        #'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
-        'NAME': 'adfan_registry_db', #name for database in local server
-        'USER': 'leomarrg',
-        'PASSWORD': 'Italia1578UPRA',
-        #'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
-        'HOST': 'localhost', #name for host in local server
-        'PORT': '3306',
+import os
+
+if os.getenv('DJANGO_ENV') == 'production':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
+            'USER': 'leomarrg',
+            'PASSWORD': 'your-pythonanywhere-db-password',  # Replace with your PythonAnywhere database password
+            'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
+            'PORT': '3306',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'adfan_registry_db',  # Local database name
+            'USER': 'root',  # Change to match your local MySQL/MariaDB username
+            'PASSWORD': 'Italia1578UPRA',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
 
 
 # Password validation
