@@ -419,10 +419,11 @@ form input {
 
     .family-image {
         position: absolute;
-        bottom: -8.5vh; /* -20px -> -1.85vh */
+        bottom: -12.5vh; /* -20px -> -1.85vh */
         left: 35%;
         transform: rotate(-23deg);
         z-index: -8;
+        opacity: .3;
     }
 
     /* Button Styling */
