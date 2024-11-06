@@ -295,6 +295,7 @@ form input {
         box-sizing: border-box;
         margin-top: 11.48vh; /* 60px -> 6.48vh */
         z-index: -2;
+        background: transparent;
     }
 
     .form-row {
@@ -391,7 +392,7 @@ form input {
         top: 3.15vh; /* -250px -> -23.15vh */
         right: -2.17vw; /* -80px -> -4.17vw */
         height: 35.96vh; /* 950px -> 87.96vh */
-        z-index: 1;
+        z-index: -10;
         opacity: 0.3;
     }
 
@@ -401,7 +402,7 @@ form input {
         left: 50%; /* -20px -> -1.04vw */
         height: 35.67vh; /* 450px -> 41.67vh */
         transform: translate(-50%, -50%);
-        z-index: 1;
+        z-index: -9;
         opacity: 0.3;
     }
 
@@ -413,13 +414,15 @@ form input {
         height: 7.02vh; /* 65px -> 6.02vh */
         width: 52vw;
         z-index: 1;
+
     }
 
     .family-image {
         position: absolute;
         bottom: -8.5vh; /* -20px -> -1.85vh */
+        left: 35%;
         transform: rotate(-23deg);
-        z-index: 1;
+        z-index: -8;
     }
 
     /* Button Styling */
