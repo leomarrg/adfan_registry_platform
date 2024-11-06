@@ -270,182 +270,174 @@ form input {
     /* Style for the text entered in the input box */
     input[type="text"],
     input[type="email"],
-    input[type="date"]{
+    input[type="date"] {
         font-family: 'Ubuntu', sans-serif;
         font-weight: 400; /* Use Ubuntu Regular */
         border: #49a6a2 solid 4px;
         border-radius: 10px;
         z-index: 1;
         text-align: center;
+        width: 85%; /* Maintain width of input fields */
+        height: 5vh; /* Proportional height for mobile */
+        box-sizing: border-box;
+        padding: 0.5rem;
+        margin-bottom: 1.5vh; /* Space below each input field */
     }
 
-    /* Form Styling */
+    /* Form Wrapper */
     .form-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         height: calc(100vh - 6.48vh); /* Height adapts with header */
-        
     }
 
+    /* Form Container */
     .form-container {
-        padding: 1.04vw; /* 20px -> 1.04vw */
-        max-width: 68.83vw; /* 400px -> 20.83vw */
+        padding: 4vw; /* Consistent padding */
+        max-width: 90vw; /* Keep within screen width */
         width: 100%;
         text-align: center;
         box-sizing: border-box;
-        margin-top: 11.48vh; /* 60px -> 6.48vh */
+        margin: 0 auto; /* Ensure horizontal centering */
         z-index: -2;
         background: transparent;
     }
 
+    /* Form Row */
     .form-row {
         display: flex;
+        flex-direction: column; /* Stack label and input vertically for better mobile usability */
         align-items: center;
-        margin-bottom: 2.4vh; /* 15px -> 1.39vh */
-    }
-
-    form label {
-        margin-right: 10px; /* Space between label and input */
-        text-align: center; /* Optional: right-align the label */
-        z-index: 1;
+        margin-bottom: 3vh; /* Maintain space between rows */
     }
 
     /* Label Styling */
+    form label {
+        margin-bottom: 0.5rem; /* Space below label */
+        text-align: center;
+        z-index: 1;
+    }
+
+    /* Label Box */
     .label-box {
         display: inline-flex;
         background-color: #49a6a2;
-        padding: 0.46vh 1.52vw; /* Vertical and horizontal padding */
-        border-radius: 0.74vw; /* Rounded corners */
+        padding: 0.5vh 1.5vw; /* Vertical and horizontal padding */
+        border-radius: 1vw;
         color: #ffffff;
         font-weight: bold;
-        height: 4.2vh; /* Consistent height */
-        width: 15.4vw; /* Fixed width for all labels */
+        height: auto; /* Adjusts automatically based on content */
+        width: auto; /* No fixed width for better adaptability */
         text-align: center;
         align-items: center;
         justify-content: center;
-        z-index: -1;
+        z-index: 1;
     }
 
     .label-box.large {
-        font-size: 3.9vw; /* 18px -> 0.93vw */
+        font-size: 4vw; /* Keep larger font for label */
     }
-
 
     .label-box.small {
-        font-size: 2.90vw; /* 14px -> 0.73vw */
+        font-size: 3vw; /* Keep smaller font for label */
     }
 
-    form input {
-        width: 85%;
-        height: 40px;
-        box-sizing: border-box;
-        padding: 4px;
-    }
-
-    /* Button Styling */
+    /* Button Wrapper */
     .button-wrapper {
-        margin-left: 5.99vw; /* 115px -> 5.99vw */
-        width: 85%;
+        width: 85%; /* Consistent width with input fields */
+        text-align: center; /* Center the button wrapper */
     }
 
+    /* Submit Button */
     .submit-button {
         border: none;
         background-color: #e9a3b8;
-        width: 6.77vw; /* 130px -> 6.77vw */
-        height: 3.7vh; /* 40px -> 3.7vh */
-        border-radius: 0.26vw; /* 5px -> 0.26vw */
+        width: 70%; /* Adjust width for a proportional appearance */
+        height: 5vh; /* Maintain height for mobile */
+        border-radius: 1rem; /* Consistent border-radius */
         font-family: 'Ubuntu', sans-serif;
         font-weight: 700;
-        font-size: 1.04vw; /* medium font size -> adjust as needed */
-        color: #31716e;
-        cursor: pointer;
-    }
-
-    /* Responsive Image Styling */
-    .home-image {
-        position: absolute;
-        top: 4.5vh; /* 60px -> 5.56vh */
-        left: 7.5vw; /* 50px -> 2.6vw */
-        height: 9.67vh; /* 120px -> 11.1vh */
-        z-index: 1;
-    }
-
-    .logo-image {
-        position: absolute;
-        top: 19.04vh; /* 130px -> 12.04vh */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 8.1vh; /* 120px -> 11.1vh */
-        z-index: 1;
-    }
-
-    .adfan-image {
-        position: absolute;
-        top: 4.5vh; /* 60px -> 5.56vh */
-        right: 7.3vw; /* 50px -> 2.6vw */
-        height: 9.67vh; /* 180px -> 16.67vh */
-        z-index: 4;
-    }
-
-    .heart-image {
-        position: absolute;
-        top: 3.15vh; /* -250px -> -23.15vh */
-        right: -2.17vw; /* -80px -> -4.17vw */
-        height: 35.96vh; /* 950px -> 87.96vh */
-        z-index: -10;
-        opacity: 0.3;
-    }
-
-    .hearts-image {
-        position: absolute;
-        top: 60%; /* 240px -> 22.22vh */
-        left: 50%; /* -20px -> -1.04vw */
-        height: 35.67vh; /* 450px -> 41.67vh */
-        transform: translate(-50%, -50%);
-        z-index: -9;
-        opacity: 0.3;
-    }
-
-    .preregistro-image {
-        position: absolute;
-        top: 29%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 7.02vh; /* 65px -> 6.02vh */
-        width: 52vw;
-        z-index: 1;
-
-    }
-
-    .family-image {
-        position: absolute;
-        bottom: -12.5vh; /* -20px -> -1.85vh */
-        left: 28vh;
-        transform: rotate(-23deg);
-        z-index: -8;
-        opacity: .3;
-    }
-
-    /* Button Styling */
-    .button-wrapper {
-        margin-left: 14.99vw; /* 115px -> 5.99vw */
-        width: 85%;
-        z-index: -1;
-    }
-
-    .submit-button {
-        border: none;
-        background-color: #e9a3b8;
-        width: 23.77vw; /* 130px -> 6.77vw */
-        height: 3.3vh; /* 40px -> 3.7vh */
-        border-radius: 3.26vw; /* 5px -> 0.26vw */
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: 700;
-        font-size: 4.04vw; /* medium font size -> adjust as needed */
+        font-size: 4vw;
         color: #31716e;
         cursor: pointer;
         z-index: -3;
     }
 
+    /* Responsive Image Styling */
+
+    /* Home Image */
+    .home-image {
+        position: relative;
+        margin-top: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 10vh; /* Keep proportionate to viewport height */
+        z-index: 1;
+    }
+
+    /* Logo Image */
+    .logo-image {
+        position: relative;
+        top: 10vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 8vh; /* Proportional height */
+        z-index: 1;
+    }
+
+    /* ADFAN Image */
+    .adfan-image {
+        position: relative;
+        margin-top: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 10vh;
+        z-index: 1;
+    }
+
+    /* Heart Image */
+    .heart-image {
+        position: relative;
+        top: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 35vh; /* Proportional height */
+        z-index: -10;
+        opacity: 0.3;
+    }
+
+    /* Hearts Image */
+    .hearts-image {
+        position: relative;
+        top: 10vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 30vh;
+        z-index: -9;
+        opacity: 0.3;
+    }
+
+    /* Preregistro Image */
+    .preregistro-image {
+        position: relative;
+        margin-top: 15vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 6vh;
+        width: 50vw;
+        z-index: 1;
+    }
+
+    /* Family Image */
+    .family-image {
+        position: relative;
+        bottom: -5vh;
+        left: 50%;
+        transform: translateX(-50%) rotate(-23deg);
+        height: 25vh; /* Keep height proportional to the view height */
+        z-index: -8;
+        opacity: 0.3;
+    }
 }
+
