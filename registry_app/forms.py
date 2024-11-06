@@ -1,7 +1,6 @@
 # registry_app/forms.py
 from django import forms
 from .models import Attendee, Review
-from django.core.exceptions import ValidationError
 
 class AttendeeForm(forms.ModelForm):
     class Meta:
@@ -17,11 +16,13 @@ class AttendeeForm(forms.ModelForm):
         'date_of_birth': 'Fecha de nacimiento',
         'email': 'Correo electrónico',
     }
+    # Personalizar la validación del campo email
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if Attendee.objects.filter(email=email).exists():
-            raise ValidationError("Este correo electrónico ya está en uso. Por favor, use otro.")
+            raise forms.ValidationError("Correo electrónico ya en uso. Por favor, utilice otro.")
         return email
+        
 
 class ReviewForm(forms.ModelForm):
     class Meta:

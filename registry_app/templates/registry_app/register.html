@@ -1,3 +1,5 @@
+<!-- ADFAN_registry/registry_app/templates/registry_app/register.html -->
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,33 +9,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="{% static 'registry_app/css/registry_style.css' %}">
+
 </head>
 <body>
     <header></header>
-    <img src="{% static 'img/Home@2x.png' %}" alt="" class="home-image">
-    <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="" class="logo-image">
-    <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="" class="adfan-image">
-    <img src="{% static 'img/Heart-Background@4x.png' %}" alt="" class="heart-image">
-    <img src="{% static 'img/Pre-Registro@3x.png' %}" alt="" class="preregistro-image">
-    <img src="{% static 'img/Family@4x.png' %}" alt="" class="family-image">
-    <img src="{% static 'img/Hearts-Background@3x.png' %}" alt="" class="hearts-image">
+        <img src="{% static 'img/Home@2x.png' %}" alt="" class="home-image">
+        <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="" class="logo-image">
+        <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="" class="adfan-image">
+        <img src="{% static 'img/Heart-Background@4x.png' %}" alt="" class="heart-image">
+        <img src="{% static 'img/Pre-Registro@3x.png' %}" alt="" class="preregistro-image">
+        <img src="{% static 'img/Family@4x.png' %}" alt="" class="family-image">
+        <img src="{% static 'img/Hearts-Background@3x.png' %}" alt="" class="hearts-image">
+    <!-- Success Message Section -->
+    <style>
+        /* Añadir estilos para los mensajes de éxito y error */
+        .message-success {
+            color: green;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-    <!-- Message Section -->
+        .message-error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
     <div class="form-wrapper">
         <div class="form-container">
-            {% if messages %}
-            <div>
-                {% for message in messages %}
-                    {% if message.tags == "success" %}
-                        <p style="color: green;">{{ message }}</p>
-                    {% else %}
-                        <p style="color: red;">{{ message }}</p>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
 
-            <!-- Form Section -->
+            <!-- Mostrar Mensajes de Error o Éxito -->
+            {% if messages %}
+                <div>
+                    {% for message in messages %}
+                        <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Formulario de Registro -->
             <form method="post">
                 {% csrf_token %}
                 <div class="form-row">
@@ -41,42 +60,37 @@
                         <span class="label-box large">{{ form.name.label }}</span>
                     </label>
                     {{ form.name }}
-                    {{ form.name.errors }}
                 </div>
                 <div class="form-row">
                     <label for="{{ form.last_name.id_for_label }}">
                         <span class="label-box large">{{ form.last_name.label }}</span>
                     </label>
                     {{ form.last_name }}
-                    {{ form.last_name.errors }}
                 </div>
                 <div class="form-row">
                     <label for="{{ form.phone_number.id_for_label }}">
                         <span class="label-box small">{{ form.phone_number.label }}</span>
                     </label>
                     {{ form.phone_number }}
-                    {{ form.phone_number.errors }}
                 </div>
                 <div class="form-row">
                     <label for="{{ form.date_of_birth.id_for_label }}">
                         <span class="label-box small">{{ form.date_of_birth.label }}</span>
                     </label>
                     {{ form.date_of_birth }}
-                    {{ form.date_of_birth.errors }}
                 </div>
                 <div class="form-row">
                     <label for="{{ form.email.id_for_label }}">
                         <span class="label-box small">{{ form.email.label }}</span>
                     </label>
                     {{ form.email }}
-                    {{ form.email.errors }}
                 </div>
                 <div class="form-row">
                     <div class="button-wrapper">
                         <button type="submit" class="submit-button">Someter</button>
                     </div>
                 </div>
-            </form>             
+            </form>  
         </div>
     </div>
 </body>
