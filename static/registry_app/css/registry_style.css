@@ -237,7 +237,7 @@ form input {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 7.02vh; /* 65px -> 6.02vh */
-    z-index: 1;
+    z-index: 2;
 }
 
 .family-image {
@@ -288,7 +288,6 @@ form input {
     }
 
     .form-container {
-        background-color: #ffffff;
         padding: 1.04vw; /* 20px -> 1.04vw */
         max-width: 68.83vw; /* 400px -> 20.83vw */
         width: 100%;
@@ -326,28 +325,10 @@ form input {
         z-index: -1;
     }
 
-    .label-box1 {
-        display: inline-flex;
-        background-color: #49a6a2;
-        padding: 0.46vh 1.52vw; /* Vertical and horizontal padding */
-        border-radius: 0.74vw; /* Rounded corners */
-        color: #ffffff;
-        font-weight: bold;
-        height: 4.2vh; /* Consistent height */
-        width: 14.5vw; /* Fixed width for all labels */
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        z-index: -1;
-    }
-
     .label-box.large {
         font-size: 3.9vw; /* 18px -> 0.93vw */
     }
 
-    .label-box1.large {
-        font-size: 3.4vw; /* 18px -> 0.93vw */
-    }
 
     .label-box.small {
         font-size: 2.90vw; /* 14px -> 0.73vw */
@@ -437,10 +418,8 @@ form input {
     .family-image {
         position: absolute;
         bottom: -8.5vh; /* -20px -> -1.85vh */
-        left: 22vh; /* 150px -> 7.81vw */
-        height: 25.93vh; /* 280px -> 25.93vh */
-        z-index: -1;
         transform: rotate(-23deg);
+        z-index: 1;
     }
 
     /* Button Styling */
