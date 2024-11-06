@@ -1,9 +1,7 @@
-# registry_app/views.py
 from django.shortcuts import render, redirect
-from .forms import AttendeeForm, ReviewForm
+from .forms import AttendeeForm
 from .models import Attendee
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 # Pre-registration view
 def register_attendee(request):
@@ -13,15 +11,24 @@ def register_attendee(request):
             attendee = form.save(commit=False)
             attendee.pre_registered = True
             attendee.save()
-            messages.success(request, "¡Registro exitoso!")  # Display success message
+            # Mostrar mensaje de éxito
+            messages.success(request, "Registro exitoso!")
             return redirect('register_attendee')
         else:
-            # Display an error message if email is already in use or other validation errors
-            messages.error(request, "Por favor, corrija los errores en el formulario.")
+            # Agregar todos los errores del formulario a `messages` para mostrarlos en la parte superior
+            for field, errors in form.errors.items():
+                for error in errors:
+                    # Crear un mensaje que combine el campo y el error
+                    messages.error(request, error)
     else:
         form = AttendeeForm()
-    
+
+    # Renderizar siempre el formulario con cualquier mensaje (error o éxito)
     return render(request, 'registry_app/register.html', {'form': form})
+
+
+
+
 
 # Same-day registration view
 def front_desk_register(request):
