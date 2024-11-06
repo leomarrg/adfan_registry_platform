@@ -14,16 +14,6 @@ def register_attendee(request):
             attendee.pre_registered = True  # Mark as pre-registered
             attendee.save()
             messages.success(request, "Registration successful!")  # Display success message
-            email = form.cleaned_data.get('email')
-            if Attendee.objects.filter(email=email).exists():
-                messages.error(request, "Este correo electrónico ya está registrado. Use otro correo electrónico.")
-            else:
-                # Save the attendee as pre-registered
-                attendee = form.save(commit=False)
-                attendee.pre_registered = True
-                attendee.save()
-                messages.success(request, "¡Registro exitoso!")  # Display success message
-                return redirect('register_attendee')  # Redirect to the same page to refresh the form
             return redirect('register_attendee')  # Redirect to the same registration page to refresh the form
     else:
         form = AttendeeForm()
