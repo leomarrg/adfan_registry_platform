@@ -285,7 +285,7 @@ form input {
         align-items: center;
         justify-content: center;
         height: calc(100vh - 6.48vh); /* Height adapts with header */
-        
+        flex-direction: column;
     }
 
     .form-container {

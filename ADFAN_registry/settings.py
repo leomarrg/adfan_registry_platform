@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [] #for running server locally
 
-ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
+ALLOWED_HOSTS = ['www.congresoadopcionadfan.com', 'congresoadopcionadfan.com', '127.0.0.1' ]
 
 
 
