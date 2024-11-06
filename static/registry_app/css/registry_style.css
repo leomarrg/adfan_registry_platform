@@ -299,8 +299,7 @@ form input {
         width: 100%;
         text-align: center;
         box-sizing: border-box;
-
-        z-index: 2;
+        z-index: 1;
         background: transparent;
     }
 
@@ -361,7 +360,7 @@ form input {
         font-size: 4vw;
         color: #31716e;
         cursor: pointer;
-        z-index: -1;
+        z-index: 1;
     }
 
     /* Responsive Image Styling */
