@@ -10,7 +10,7 @@ class AttendeeForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),  # Use a date input widget
         }
         labels = {
-        'name': 'Nombre',
+        'name': 'Nombr',
         'last_name': 'Apellidos',
         'phone_number': 'Número de teléfono',
         'date_of_birth': 'Fecha de nacimiento',
