@@ -20,7 +20,7 @@ class AttendeeForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if Attendee.objects.filter(email=email).exists():
-            raise forms.ValidationError("Correo electrónico ya en uso. Por favor, utilice otro.")
+            raise forms.ValidationError("Correo electrónico ya en uso")
         return email
         
 
