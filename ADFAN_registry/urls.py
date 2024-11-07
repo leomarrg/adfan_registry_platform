@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from registry_app import views as registry_views  # Import the views from your registry_app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registry/', include('registry_app.urls'))
+    path('registry/', include('registry_app.urls')),  # Existing registry URLs
+    path('', registry_views.register_attendee, name='home'),  # Root URL now points to the register_attendee view
 ]
