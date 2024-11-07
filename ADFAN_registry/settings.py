@@ -33,7 +33,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.congresoadopcionadfan.com', 'congresoadopcionadfan.com']
 
 
-
 # Application definition
 
 INSTALLED_APPS = [

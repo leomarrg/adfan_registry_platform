@@ -288,6 +288,19 @@ form input {
         width: 100%;
     }
 
+    input[type="date"] {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+    box-sizing: border-box;
+}
+
+
     /* Form Styling */
     .form-wrapper {
         display: flex;
