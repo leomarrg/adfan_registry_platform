@@ -129,12 +129,6 @@ input[type="date"] {
     z-index: 1;
 }
 
-input[type="text"] {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-}
-
 .label-box.large {
     font-size: 0.93vw; /* 18px -> 0.93vw */
 }
