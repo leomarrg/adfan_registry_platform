@@ -27,9 +27,6 @@ def register_attendee(request):
     return render(request, 'registry_app/register.html', {'form': form})
 
 
-
-
-
 # Same-day registration view
 def front_desk_register(request):
     if request.method == 'POST':
