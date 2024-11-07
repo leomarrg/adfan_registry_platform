@@ -93,16 +93,19 @@ header {
 
 /* Label Styling */
 .label-box {
-    height: 40px; /* Igualar altura al input */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1vw; /* Espaciado horizontal sin afectar altura */
-    border-radius: 10px;
+    display: inline-flex;
+    background-color: #49a6a2;
+    padding: 0.46vh 1.52vw; /* Adjusted padding for uniformity */
+    border-radius: 0.74vw; /* Rounded corners */
     color: #ffffff;
     font-weight: bold;
-    background-color: #49a6a2;
-    z-index: 1; /* Asegurar que sea visible */
+    height: 4.2vh; /* Consistent height */
+    width: 15.4vw; /* Consistent width for all labels */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.9vw; /* Consistent font size */
+    z-index: -1;
 }
 
 form label {
