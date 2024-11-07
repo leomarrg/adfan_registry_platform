@@ -121,13 +121,15 @@ input[type="date"] {
     font-weight: 400; /* Use Ubuntu Regular */
     border: #49a6a2 solid 4px;
     border-radius: 10px;
-    width: calc(100% - 1vw); /* Dejar algo de espacio alrededor */
+    width: 100%;
     height: 40px;
     box-sizing: border-box;
     padding: 4px;
     text-align: center;
     z-index: 1;
 }
+
+
 
 
 
