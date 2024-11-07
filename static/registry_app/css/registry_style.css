@@ -290,7 +290,7 @@ form input {
 
     input[type="date"] {
         width: 100%;
-        min-width: 80%;
+        min-width: 70%;
         max-width: 100%;
     }
 
