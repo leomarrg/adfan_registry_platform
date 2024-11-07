@@ -10,7 +10,7 @@ class AttendeeForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),  # Use a date input widget
         }
         labels = {
-        'name': 'Nombre',
+        'name': 'Nombre1',
         'last_name': 'Apellidos',
         'phone_number': 'Número de teléfono',
         'date_of_birth': 'Fecha de nacimiento',
@@ -20,7 +20,7 @@ class AttendeeForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if Attendee.objects.filter(email=email).exists():
-            raise forms.ValidationError("Correo electrónico ya en uso")
+            raise forms.ValidationError("Correo electrónico ya en uso. Por favor, utilice otro.")
         return email
         
 
