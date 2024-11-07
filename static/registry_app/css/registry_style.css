@@ -112,19 +112,17 @@ form label {
 }
 
 /* Style for the text entered in the input box */
-.label-box,
 input[type="text"],
 input[type="email"],
 input[type="date"] {
     font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
     font-weight: 400; /* Use Ubuntu Regular */
     border: #49a6a2 solid 4px;
     border-radius: 10px;
     width: calc(100% - 1vw); /* Dejar algo de espacio alrededor */
     height: 40px;
     box-sizing: border-box;
-    padding: 0 1vw;
+    padding: 4px;
     text-align: center;
     z-index: 1;
 }
