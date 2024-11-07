@@ -111,7 +111,7 @@ form label {
     z-index: 1;
 }
 
-/* Ensure consistent styling across all input fields */
+/* Style for the text entered in the input box */
 input[type="text"],
 input[type="email"],
 input[type="date"] {
@@ -119,21 +119,14 @@ input[type="date"] {
     font-weight: 400; /* Use Ubuntu Regular */
     border: #49a6a2 solid 4px;
     border-radius: 10px;
-    width: 100%; /* Use 100% width to match the container */
-    max-width: calc(100% - 1vw); /* Add some spacing around */
+    width: calc(100% - 1vw); /* Dejar algo de espacio alrededor */
     height: 40px;
-    box-sizing: border-box; /* Ensures padding and border are included in width */
+    box-sizing: border-box;
     padding: 4px;
     text-align: center;
     z-index: 1;
-    margin: 0; /* Remove any margin that could cause misalignment */
 }
 
-/* Form input within form-row for a more precise layout */
-.form-row input {
-    width: 100%; /* Matches width with container */
-    box-sizing: border-box; /* Consistent box-sizing */
-}
 
 
 .label-box.large {
