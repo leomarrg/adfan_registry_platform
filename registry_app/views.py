@@ -33,12 +33,21 @@ def front_desk_register(request):
         form = AttendeeForm(request.POST)
         if form.is_valid():
             attendee = form.save(commit=False)
-            attendee.registered_at_event = True  # Mark as same-day registration
+            attendee.registered_at_event = True
             attendee.save()
-            messages.success(request, "Registration successful!")  # Display success message
-            return redirect('register_attendee')  # Redirect to the same registration page to refresh the form
+            # Mostrar mensaje de éxito
+            messages.success(request, "Registro exitoso!")
+            return redirect('register_attendee')
+        else:
+            # Agregar todos los errores del formulario a messages para mostrarlos en la parte superior
+            for field, errors in form.errors.items():
+                for error in errors:
+                    # Crear un mensaje que combine el campo y el error
+                    messages.error(request, error)
     else:
         form = AttendeeForm()
+
+    # Renderizar siempre el formulario con cualquier mensaje (error o éxito)
     return render(request, 'registry_app/front_desk_register.html', {'form': form})
 
 # Review view
