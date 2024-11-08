@@ -4,7 +4,7 @@ from .models import Attendee, Review, Table
 # Register your models here.
 
 class AttendeeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'date_of_birth', 'registration_type', 'registration_date')
+    list_display = ('id', 'name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'date_of_birth', 'registration_type', 'registration_date')
     list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')  # Add filters for categories
     list_editable = ('table', 'seat_number', 'arrived')
 

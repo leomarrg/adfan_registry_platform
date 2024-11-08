@@ -91,7 +91,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
+#database for running web app locally
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
