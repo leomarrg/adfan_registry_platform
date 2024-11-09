@@ -476,7 +476,7 @@ form input {
         left: 50%;
         transform: translate(-50%, -50%);
         bottom: 2%;
-        font-size: xx-small ;
+        font-size: 5px;
     }
 
 }
