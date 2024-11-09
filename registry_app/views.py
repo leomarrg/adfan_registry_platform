@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import AttendeeForm, ReviewForm
 from .models import Attendee
+import logging
+
+logger = logging.getLogger(__name__)
 
 from django.contrib import messages
 
@@ -59,9 +62,11 @@ def leave_review(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Gracias por tu retroalimentación!")
-            return redirect('leave_review')  # Redirect back to the form page to clear inputs
+            return redirect('leave_review')
         else:
-            # Show form errors in messages for better user experience
+            # Log the form errors to identify the issue
+            logger.error(f"Form errors: {form.errors}")
+            # Add form errors to messages to show them in the UI
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, error)
