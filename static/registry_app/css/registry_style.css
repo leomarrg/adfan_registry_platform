@@ -471,6 +471,14 @@ form input {
         z-index: -3;
     }
 
+    .approve_messg {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 2%;
+        font-size: xx-small ;
+    }
+
 }
 
 .message-success {
