@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import AttendeeForm
+from .forms import AttendeeForm, ReviewForm
 from .models import Attendee
+
 from django.contrib import messages
 
 # Pre-registration view
@@ -50,19 +51,26 @@ def front_desk_register(request):
     # Renderizar siempre el formulario con cualquier mensaje (error o éxito)
     return render(request, 'registry_app/front_desk_register.html', {'form': form})
 
-# Review view
-def leave_review(request, attendee_id):
-    attendee = Attendee.objects.get(id=attendee_id)
+# Review submission view
+# Anonymous review submission view
+def leave_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            review = form.save(commit=False)
-            review.attendee = attendee
-            review.save()
-            return redirect('review_success')
+            form.save()
+            # Mostrar mensaje de éxito
+            messages.success(request, "Gracias por tu retroalimentación!")
+            return redirect('leave_review')
+        else:
+            # Agregar todos los errores del formulario a messages para mostrarlos en la parte superior
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
     else:
         form = ReviewForm()
-    return render(request, 'registry_app/review.html', {'form': form, 'attendee': attendee})
+
+    # Renderizar siempre el formulario con cualquier mensaje (error o éxito)
+    return render(request, 'registry_app/review.html', {'form': form})
 
 def attendee_lists(request):
     pre_registered_attendees = Attendee.objects.filter(pre_registered=True)
