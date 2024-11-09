@@ -1,0 +1,219 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/static/fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+
+    /* Form Styling */
+    .form-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 6.48vh);
+        flex-direction: column;
+    }
+
+    .form-container {
+        padding: 1.04vw;
+        max-width: 92.83vw;
+        width: 100%;
+        text-align: left;
+        box-sizing: border-box;
+        margin-top: 11.48vh;
+        background: transparent;
+    }
+
+    /* Label Styling */
+    .form-label {
+        display: inline-flex;
+        background-color: #49a6a2;
+        border-radius: 0.74vw;
+        color: #ffffff;
+        height: 4.2vh;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    /* Responsive Image Styling */
+    .home-image, .logo-image, .adfan-image, .heart-image, .hearts-image, .family-image {
+        position: absolute;
+    }
+
+    .home-image {
+        top: 4.5vh;
+        left: 7.5vw;
+        height: 6.67vh;
+        z-index: 1;
+    }
+
+    .logo-image {
+        top: 12.63vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 8.1vh;
+        z-index: 1;
+    }
+
+    .adfan-image {
+        top: 4.5vh;
+        right: 7.3vw;
+        height: 6.67vh;
+        z-index: 4;
+    }
+
+    .heart-image {
+        top: 3.15vh;
+        right: -2.17vw;
+        height: 35.96vh;
+        z-index: -10;
+        opacity: 0.3;
+    }
+
+    .hearts-image {
+        top: 60%;
+        left: 50%;
+        height: 35.67vh;
+        transform: translate(-50%, -50%);
+        z-index: -9;
+        opacity: 0.3;
+    }
+
+    .family-image {
+        bottom: -12.5vh;
+        left: 28vh;
+        transform: rotate(-23deg);
+        z-index: -8;
+        opacity: .3;
+    }
+
+    /* Button Styling */
+    .submit-button {
+        border: none;
+        background-color: #e9a3b8;
+        width: 23.77vw;
+        height: 3.3vh;
+        border-radius: 3.26vw;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700;
+        font-size: 4.04vw;
+        color: #31716e;
+        cursor: pointer;
+    }
+
+    .submit-button:hover {
+        background-color: #218838;
+    }
+
+    .titulo {
+        width: 100%;
+        color: #31716e;
+        font-weight: 600;
+        font-size: larger;
+        text-align: center;
+    }
+
+    /* Container for radio buttons */
+    .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* Styling for each radio button label */
+    .radio-item {
+        display: flex;
+        align-items: center; /* Align items to the center of the radio button */
+        padding: 5px 5px 5px 45px; /* Add left padding to create space for the offset custom radio button */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #f9f9f9;
+        font-size: small;
+        text-align: left;
+        margin-left: 0;
+        position: relative; /* Set positioning context for .custom-radio */
+        gap: 10px; /* Space between custom radio and label text */
+        box-sizing: border-box; /* Ensure padding is included in width calculations */
+    }
+
+    /* Special styling for the longer options */
+    .longer-option {
+        flex: 1 1 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Hide the default radio button */
+    input[type="radio"] {
+        display: none;
+    }
+
+    /* Style the custom radio button */
+    .custom-radio {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #000000;
+        background-color: rgb(255, 0, 0);
+        cursor: pointer;
+        margin-right: 10px; /* Space between radio button and label text */
+        border-radius: 5px;
+        position: absolute; /* Use absolute positioning */
+        top: -13px;  /* Adjust positioning to move upwards */
+        left: -13px; /* Adjust positioning to move to the left */
+        box-sizing: border-box;
+    }
+
+    /* Change the appearance when the radio button is checked */
+    input[type="radio"]:checked + .custom-radio {
+        background-color: #000000;
+        border-color: #000000;
+    }
+
+    /* Add an inner dot to indicate selection */
+    input[type="radio"]:checked + .custom-radio:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+    }
+
+    /* Comments label styling */
+    .comment-label {
+        width: auto;
+        justify-content: flex-start;
+        margin-left: 0;
+        text-align: left;
+        padding: 7px;
+        background-color: #49a6a2;
+        color: white;
+        border-radius: 5px;
+    }
+
+    /* Form styling for margin */
+    .form-satisfaction, .form-usefulness, .form-comments {
+        margin-bottom: 20px;
+    }
+
+}
