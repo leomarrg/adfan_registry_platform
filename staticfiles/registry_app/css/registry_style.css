@@ -1,4 +1,6 @@
 /* Global Styles */
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -19,7 +21,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ffffff;
+    background: transparent;
     padding: 1.04vw; /* 20px -> 1.04vw based on 1920px width */
     box-sizing: border-box;
 }
@@ -65,62 +67,66 @@ header {
     font-style: normal;
 }
 
-/* Style for the text entered in the input box */
-input[type="text"],
-input[type="email"],
-input[type="date"]{
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 400; /* Use Ubuntu Regular */
-    border: #49a6a2 solid 4px;
-    border-radius: 10px;
-    z-index: 1;
-    text-align: center;
-}
-
 /* Form Styling */
 .form-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 6.48vh); /* Height adapts with header */
+    height: calc(100vh - 6.48vh);
 }
 
 .form-container {
-    background-color: #ffffff;
-    padding: 1.04vw; /* 20px -> 1.04vw */
-    max-width: 23.83vw; /* 400px -> 20.83vw */
+    background-color: transparent;
+    padding: 1.04vw;
+    max-width: 23.83vw;
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    margin-top: 6.48vh; /* 60px -> 6.48vh */
+    margin-top: 6.48vh;
 }
 
 .form-row {
     display: flex;
-    align-items: center;
-    margin-bottom: 2.4vh; /* 15px -> 1.39vh */
-}
-
-form label {
-    margin-right: 10px; /* Space between label and input */
-    text-align: center; /* Optional: right-align the label */
-    z-index: 1;
+    align-items: center; /* Centrar verticalmente label e input */
+    justify-content: space-between; /* Mantener espacio entre ellos */
+    margin-bottom: 2.4vh;
+    width: 100%; /* Ancho completo */
 }
 
 /* Label Styling */
 .label-box {
-    display: inline-flex;
-    background-color: #49a6a2;
-    padding: 0.46vh 0.52vw; /* Vertical and horizontal padding */
-    border-radius: 0.74vw; /* Rounded corners */
-    color: #ffffff;
-    font-weight: bold;
-    height: 4.2vh; /* Consistent height */
-    width: 5.2vw; /* Fixed width for all labels */
-    text-align: center;
+    height: 40px; /* Igualar altura al input */
+    display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1;
+    padding: 0 1vw; /* Espaciado horizontal sin afectar altura */
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #49a6a2;
+    z-index: 1; /* Asegurar que sea visible */
+}
+
+form label {
+    margin-right: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Style for the text entered in the input box */
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400; /* Use Ubuntu Regular */
+    border: #49a6a2 solid 4px;
+    border-radius: 10px;
+    width: calc(100% - 1vw); /* Dejar algo de espacio alrededor */
+    height: 40px;
+    box-sizing: border-box;
+    padding: 4px;
+    text-align: center;
+    z-index: 1;
 }
 
 .label-box.large {
@@ -188,7 +194,7 @@ form input {
     bottom: -22.15vh; /* -250px -> -23.15vh */
     right: -7.17vw; /* -80px -> -4.17vw */
     height: 104.96vh; /* 950px -> 87.96vh */
-    z-index: 1;
+    z-index: -1;
     opacity: 0.3;
 }
 
@@ -237,7 +243,7 @@ form input {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 7.02vh; /* 65px -> 6.02vh */
-    z-index: 1;
+    z-index: 2;
 }
 
 .family-image {
@@ -250,6 +256,7 @@ form input {
 
 
 /* Mobile-Specific Layout (for screens smaller than 768px) */
+
 @media (max-width: 768px) {
 
     @font-face {
@@ -274,9 +281,24 @@ form input {
         font-weight: 400; /* Use Ubuntu Regular */
         border: #49a6a2 solid 4px;
         border-radius: 10px;
-        z-index: 1;
+        z-index: 10;
         text-align: center;
+        width: 100%;
+        height: 40px;
     }
+
+    input[type="date"] {
+        width: 100%;
+        min-width: 62%;
+        max-width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+    box-sizing: border-box;
+}
+
 
     /* Form Styling */
     .form-wrapper {
@@ -284,16 +306,19 @@ form input {
         align-items: center;
         justify-content: center;
         height: calc(100vh - 6.48vh); /* Height adapts with header */
+        flex-direction: column;
     }
 
     .form-container {
-        background-color: #ffffff;
         padding: 1.04vw; /* 20px -> 1.04vw */
         max-width: 68.83vw; /* 400px -> 20.83vw */
         width: 100%;
         text-align: center;
         box-sizing: border-box;
         margin-top: 11.48vh; /* 60px -> 6.48vh */
+        z-index: 10;
+        background: transparent;
+        left: 5
     }
 
     .form-row {
@@ -312,12 +337,12 @@ form input {
     .label-box {
         display: inline-flex;
         background-color: #49a6a2;
-        padding: 0.46vh 0.52vw; /* Vertical and horizontal padding */
+        padding: 0.46vh 1.52vw; /* Vertical and horizontal padding */
         border-radius: 0.74vw; /* Rounded corners */
         color: #ffffff;
         font-weight: bold;
         height: 4.2vh; /* Consistent height */
-        width: 14.5vw; /* Fixed width for all labels */
+        width: 15.4vw; /* Fixed width for all labels */
         text-align: center;
         align-items: center;
         justify-content: center;
@@ -325,11 +350,12 @@ form input {
     }
 
     .label-box.large {
-        font-size: 3.11vw; /* 18px -> 0.93vw */
+        font-size: 3.9vw; /* 18px -> 0.93vw */
     }
 
+
     .label-box.small {
-        font-size: 2.60vw; /* 14px -> 0.73vw */
+        font-size: 2.90vw; /* 14px -> 0.73vw */
     }
 
     form input {
@@ -356,6 +382,7 @@ form input {
         font-size: 1.04vw; /* medium font size -> adjust as needed */
         color: #31716e;
         cursor: pointer;
+        z-index: 10;
     }
 
     /* Responsive Image Styling */
@@ -379,7 +406,7 @@ form input {
     .adfan-image {
         position: absolute;
         top: 4.5vh; /* 60px -> 5.56vh */
-        right: 8.4vw; /* 50px -> 2.6vw */
+        right: 7.3vw; /* 50px -> 2.6vw */
         height: 9.67vh; /* 180px -> 16.67vh */
         z-index: 4;
     }
@@ -389,7 +416,7 @@ form input {
         top: 3.15vh; /* -250px -> -23.15vh */
         right: -2.17vw; /* -80px -> -4.17vw */
         height: 35.96vh; /* 950px -> 87.96vh */
-        z-index: 1;
+        z-index: -10;
         opacity: 0.3;
     }
 
@@ -399,33 +426,35 @@ form input {
         left: 50%; /* -20px -> -1.04vw */
         height: 35.67vh; /* 450px -> 41.67vh */
         transform: translate(-50%, -50%);
-        z-index: 1;
+        z-index: -9;
         opacity: 0.3;
     }
 
     .preregistro-image {
         position: absolute;
-        top: 29%;
+        top: 33%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: 7.02vh; /* 65px -> 6.02vh */
         width: 52vw;
         z-index: 1;
+
     }
 
     .family-image {
         position: absolute;
-        bottom: -10.85vh; /* -20px -> -1.85vh */
-        left: 50%; /* 150px -> 7.81vw */
-        transform: translate(-50%, -50%);
-        height: 17.93vh; /* 280px -> 25.93vh */
-        z-index: 1;
+        bottom: -12.5vh; /* -20px -> -1.85vh */
+        left: 28vh;
+        transform: rotate(-23deg);
+        z-index: -8;
+        opacity: .3;
     }
 
     /* Button Styling */
     .button-wrapper {
         margin-left: 14.99vw; /* 115px -> 5.99vw */
         width: 85%;
+        z-index: 10;
     }
 
     .submit-button {
@@ -433,12 +462,53 @@ form input {
         background-color: #e9a3b8;
         width: 23.77vw; /* 130px -> 6.77vw */
         height: 3.3vh; /* 40px -> 3.7vh */
-        border-radius: 1.26vw; /* 5px -> 0.26vw */
+        border-radius: 3.26vw; /* 5px -> 0.26vw */
         font-family: 'Ubuntu', sans-serif;
         font-weight: 700;
         font-size: 4.04vw; /* medium font size -> adjust as needed */
         color: #31716e;
         cursor: pointer;
+        z-index: -3;
     }
 
+    .approve_messg {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 2%;
+        font-size: 5px;
+    }
+
+}
+
+.message-success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    top: -25px; /* Mover el mensaje ligeramente hacia arriba */
+}
+
+.message-error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    top: -25px; /* Mover el mensaje ligeramente hacia arriba */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .message-success, .message-error {
+        top: 0; /* Asegurarse de que no se superpongan en pantallas pequeñas */
+        margin-bottom: 20px; /* Aumentar el margen inferior para más espacio */
+    }
+}
+
+.approve_messg {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 2%;
+    font-size: x-small ;
 }
