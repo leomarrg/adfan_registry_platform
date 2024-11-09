@@ -22,12 +22,38 @@ class AttendeeForm(forms.ModelForm):
         if Attendee.objects.filter(email=email).exists():
             raise forms.ValidationError("Correo electrónico ya en uso. Por favor, utilice otro.")
         return email
-        
 
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['rating', 'comments']
-        widgets = {
-            'rating': forms.RadioSelect(choices=[(i, str(i)) for i in range(1, 6)]),
+        fields = ['satisfaction', 'usefulness', 'comments']
+
+        labels = {
+            'comments': 'Comentarios',  # Add label for the comments field
         }
+
+        widgets = {
+            'comments': forms.Textarea(attrs={'placeholder': 'Comentarios'}),
+        }
+
+
+    satisfaction = forms.ChoiceField(
+        choices=[
+            ('Muy satisfecho', 'Muy satisfecho'),
+            ('Satisfecho', 'Satisfecho'),
+            ('No satisfecho', 'No satisfecho')
+        ],
+        widget=forms.RadioSelect,
+        label="¿Está satisfecho con la información que recibió?"
+    )
+
+    usefulness = forms.ChoiceField(
+        choices=[
+            ('Mucha utilidad', 'Mucha utilidad'),
+            ('De utilidad', 'De utilidad'),
+            ('No es pertinente a la labor que realizo', 'No es pertinente a la labor que realizo')
+        ],
+        widget=forms.RadioSelect,
+        label="¿La información compartida hoy es de utilidad para la labor que realiza?"
+    )
+

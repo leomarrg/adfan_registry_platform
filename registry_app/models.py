@@ -55,5 +55,16 @@ class Review(models.Model):
     comments = models.TextField(blank=True, null=True)
     review_date = models.DateTimeField(auto_now_add=True)
 
+from django.db import models
+
+class Review(models.Model):
+    attendee = models.ForeignKey(Attendee, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    comments = models.TextField()
+    satisfaction = models.CharField(max_length=50)
+    usefulness = models.CharField(max_length=50)
+    review_date = models.DateTimeField(auto_now_add=True)
+
+
     def __str__(self):
         return f"{self.attendee.name} - {self.rating} Stars"

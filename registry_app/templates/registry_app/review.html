@@ -1,17 +1,81 @@
 <!-- ADFAN_registry/registry_app/templates/registry_app/review.html -->
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leave a Review</title>
+    <link rel="stylesheet" href="{% static 'registry_app/css/review_style.css' %}">
+    <img src="{% static 'img/Home@2x.png' %}" alt="" class="home-image">
+    <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="" class="logo-image">
+    <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="" class="adfan-image">
+    <img src="{% static 'img/Heart-Background@4x.png' %}" alt="" class="heart-image">
+    <img src="{% static 'img/Family@4x.png' %}" alt="" class="family-image">
+    <img src="{% static 'img/Hearts-Background@3x.png' %}" alt="" class="hearts-image">
 </head>
 <body>
-    <h2>Leave a Review for {{ attendee.name }}</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <header>
+    </header>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <p class="titulo">¡Comparte tu opinión!</p>
+
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+            
+                <!-- Satisfaction Question -->
+                <div class="form-satisfaction">
+                    <div class="form-label">
+                        <label>{{ form.satisfaction.label_tag }}</label>
+                    </div>
+                    <div class="radio-group satisfaction-group">
+                        {% for choice in form.satisfaction %}
+                            <label class="radio-item">
+                                <input type="radio" name="{{ form.satisfaction.name }}" value="{{ choice.choice_value }}" id="satisfaction_choice_{{ forloop.counter }}">
+                                <span class="custom-radio"></span>
+                                {{ choice.choice_label }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+                <!-- Usefulness Question -->
+                <div class="form-usefulness">
+                    <div class="form-label">
+                        <label>{{ form.usefulness.label_tag }}</label>
+                    </div>
+                    <div class="radio-group usefulness-group">
+                        {% for choice in form.usefulness %}
+                            <label class="radio-item {% if forloop.last %}full-width-radio longer-option{% endif %}">
+                                <input type="radio" name="{{ form.usefulness.name }}" value="{{ choice.choice_value }}" id="choice_{{ forloop.counter }}">
+                                <span class="custom-radio"></span>
+                                {{ choice.choice_label }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+                <!-- Comments Field -->
+                <div class="form-comments">
+                    <div class="form-label comment-label">
+                        <label>{{ form.comments.label_tag }}</label>
+                    </div>
+                    {{ form.comments }}
+                </div>
+            
+                <button type="submit">Enviar Opinión</button>
+            </form>            
+        </div>
+    </div>
 </body>
 </html>
