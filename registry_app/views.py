@@ -58,18 +58,16 @@ def leave_review(request):
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
-            # Mostrar mensaje de éxito
             messages.success(request, "Gracias por tu retroalimentación!")
-            return redirect('leave_review')
+            return redirect('leave_review')  # Redirect back to the form page to clear inputs
         else:
-            # Agregar todos los errores del formulario a messages para mostrarlos en la parte superior
+            # Show form errors in messages for better user experience
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, error)
     else:
         form = ReviewForm()
 
-    # Renderizar siempre el formulario con cualquier mensaje (error o éxito)
     return render(request, 'registry_app/review.html', {'form': form})
 
 def attendee_lists(request):
