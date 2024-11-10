@@ -54,6 +54,8 @@ class ReviewForm(forms.ModelForm):
             ('No es pertinente a la labor que realizo', 'No es pertinente a la labor que realizo')
         ],
         widget=forms.RadioSelect,
-        label="¿La información compartida hoy es de utilidad para la labor que realiza?"
+        label="¿La información compartida hoy es de utilidad para la labor que realiza?",
+        required=True
+        
     )
 
