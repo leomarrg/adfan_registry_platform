@@ -28,5 +28,9 @@ class ReviewAdmin(admin.ModelAdmin):
 
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Table, TableAdmin)
-admin.site.register(Review, ReviewAdmin)
+
+try:
+    admin.site.register(Review, ReviewAdmin)
+except admin.sites.AlreadyRegistered:
+    pass
 
