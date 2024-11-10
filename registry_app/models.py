@@ -57,4 +57,4 @@ class Review(models.Model):
 
 
     def __str__(self):
-        return f"{self.attendee.name} - {self.rating} Stars"
+        return f"Satisfaction: {self.satisfaction}, Usefulness: {self.usefulness}, Date: {self.review_date}"
