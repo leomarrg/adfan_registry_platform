@@ -21,16 +21,7 @@
     <div class="form-wrapper">
         <div class="form-container">
             <p class="titulo">¡Comparte tu opinión!</p>
-                <!-- Dropdown Menu Above Header -->
-            
-            <div class="dropdown-container">
-                <select id="dropdown-menu" class="dropdown">
-                    <option value="placeholder">Seleccione...</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
+                <!-- Dropdown Menu Above Header -->              
 
             {% if messages %}
                 <ul>
@@ -41,8 +32,13 @@
             {% endif %}
 
             <form method="post">
+                <select name="category" class="dropdown">
+                    {% for value, label in form.category.field.choices %}
+                        <option value="{{ value }}" {% if form.category.value == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>  
                 {% csrf_token %}
-            
+                
                 <!-- Satisfaction Question -->
                 <div class="form-satisfaction">
                     <div class="form-label">
@@ -51,7 +47,7 @@
                     <div class="radio-group satisfaction-group">
                         {% for choice in form.satisfaction %}
                             <label class="radio-item">
-                                <input type="radio" name="{{ form.satisfaction.name }}" value="{{ choice.choice_value }}" id="satisfaction_choice_{{ forloop.counter }}">
+                                {{ choice.tag }}  <!-- This renders the input element correctly with name and value -->
                                 <span class="custom-radio"></span>
                                 {{ choice.choice_label }}
                             </label>
@@ -67,7 +63,7 @@
                     <div class="radio-group usefulness-group">
                         {% for choice in form.usefulness %}
                             <label class="radio-item {% if forloop.last %}full-width-radio longer-option{% endif %}">
-                                <input type="radio" name="{{ form.usefulness.name }}" value="{{ choice.choice_value }}" id="choice_{{ forloop.counter }}">
+                                {{ choice.tag }}
                                 <span class="custom-radio"></span>
                                 {{ choice.choice_label }}
                             </label>
@@ -84,8 +80,10 @@
                 </div>
             
                 <button type="submit" class="submit-button">Someter</button>
-            </form>            
+            </form>
+                       
         </div>
+        <p class="approve_messg">Aprobado por la OCE-SA-2024-13208</p>
     </div>
 </body>
 </html>

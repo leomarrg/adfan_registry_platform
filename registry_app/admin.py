@@ -22,11 +22,11 @@ class TableAdmin(admin.ModelAdmin):
     list_editable = ('max_seats',)  # Allow editing max seats directly in the admin list view
     ordering = ['table_number']
 
-# class ReviewAdmin(admin.ModelAdmin):
-#     list_display = ('satisfaction', 'usefulness', 'review_date')
-#     search_fields = ('satisfaction', 'usefulness', 'comments')
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('satisfaction', 'usefulness', 'category', 'comments', 'review_date')
+    fields = ('satisfaction', 'usefulness', 'category', 'comments', 'review_date')  # Include 'category' in the detail view
 
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Table, TableAdmin)
-#admin.site.register(Review, ReviewAdmin)
+admin.site.register(Review, ReviewAdmin)
 

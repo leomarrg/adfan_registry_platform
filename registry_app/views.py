@@ -54,22 +54,20 @@ def front_desk_register(request):
     # Renderizar siempre el formulario con cualquier mensaje (error o éxito)
     return render(request, 'registry_app/front_desk_register.html', {'form': form})
 
-# Review submission view
-# Anonymous review submission view
+# registry_app/views.py
 def leave_review(request):
     if request.method == 'POST':
+        logger.debug(f"POST data: {request.POST}")  # Add this line to log submitted data
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Gracias por tu retroalimentación!")
             return redirect('leave_review')
         else:
-            # Log the form errors to identify the issue
             logger.error(f"Form errors: {form.errors}")
-            # Add form errors to messages to show them in the UI
             for field, errors in form.errors.items():
                 for error in errors:
-                    messages.error(request, error)
+                    messages.error(request, f"{field}: {error}")
     else:
         form = ReviewForm()
 
