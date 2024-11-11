@@ -54,6 +54,7 @@ class Review(models.Model):
     satisfaction = models.CharField(max_length=50)
     usefulness = models.CharField(max_length=50)
     review_date = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(max_length=50)
 
 
     def __str__(self):

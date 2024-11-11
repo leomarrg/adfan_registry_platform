@@ -24,21 +24,6 @@ class AttendeeForm(forms.ModelForm):
         return email
 
 class ReviewForm(forms.ModelForm):
-    class Meta:
-        model = Review
-        fields = ['satisfaction', 'usefulness', 'comments']
-
-        labels = {
-            'comments': 'Comentarios',  # Add label for the comments field
-        }
-
-        widgets = {
-            'comments': forms.Textarea(attrs=
-                                       {'class': 'custom-textarea'
-                                        }),
-        }
-
-
     satisfaction = forms.ChoiceField(
         choices=[
             ('Muy satisfecho', 'Muy satisfecho'),
@@ -46,7 +31,9 @@ class ReviewForm(forms.ModelForm):
             ('No satisfecho', 'No satisfecho')
         ],
         widget=forms.RadioSelect,
-        label="¿Está satisfecho con la información que recibió?"
+        label="¿Está satisfecho con la información que recibió?",
+        required=True,
+        error_messages={'required': 'Por favor, selecciona una opción de satisfacción.'}
     )
 
     usefulness = forms.ChoiceField(
@@ -57,7 +44,32 @@ class ReviewForm(forms.ModelForm):
         ],
         widget=forms.RadioSelect,
         label="¿La información compartida hoy es de utilidad para la labor que realiza?",
-        required=True
-        
+        required=True,
+        error_messages={'required': 'Por favor, selecciona una opción de utilidad.'}
     )
 
+    CATEGORY_CHOICES = [
+        ('', 'Seleccione una opción'),  # Placeholder option with empty value
+        ('option1', 'Option 1'),
+        ('option2', 'Option 2'),
+        ('option3', 'Option 3'),
+    ]
+
+    category = forms.ChoiceField(
+        choices=CATEGORY_CHOICES,
+        label="Seleccione una opción",
+        required=True,
+        error_messages={'required': 'Por favor, selecciona una opción de la lista.'}
+    )
+    class Meta:
+        model = Review
+        fields = ['satisfaction', 'usefulness', 'comments', 'category']
+        labels = {
+            'satisfaction': "¿Está satisfecho con la información que recibió?",
+            'usefulness': "¿La información compartida hoy es de utilidad para la labor que realiza?",
+            'comments': 'Comentarios'
+        }
+        widgets = {
+            'comments': forms.Textarea(attrs={'class': 'custom-textarea'}),
+        }
+        
