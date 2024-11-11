@@ -33,7 +33,9 @@ class ReviewForm(forms.ModelForm):
         }
 
         widgets = {
-            'comments': forms.Textarea(attrs={'placeholder': 'Comentarios'}),
+            'comments': forms.Textarea(attrs=
+                                       {'class': 'custom-textarea'
+                                        }),
         }
 
 

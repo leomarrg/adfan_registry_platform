@@ -14,7 +14,6 @@
     <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="" class="adfan-image">
     <img src="{% static 'img/Heart-Background@4x.png' %}" alt="" class="heart-image">
     <img src="{% static 'img/Family@4x.png' %}" alt="" class="family-image">
-    <img src="{% static 'img/Hearts-Background@3x.png' %}" alt="" class="hearts-image">
 </head>
 <body>
     <header>
@@ -22,6 +21,16 @@
     <div class="form-wrapper">
         <div class="form-container">
             <p class="titulo">¡Comparte tu opinión!</p>
+                <!-- Dropdown Menu Above Header -->
+            
+            <div class="dropdown-container">
+                <select id="dropdown-menu" class="dropdown">
+                    <option value="placeholder">Seleccione...</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
 
             {% if messages %}
                 <ul>
@@ -74,7 +83,7 @@
                     {{ form.comments }}
                 </div>
             
-                <button type="submit" class="submit-button">Enviar Opinión</button>
+                <button type="submit" class="submit-button">Someter</button>
             </form>            
         </div>
     </div>
