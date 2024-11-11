@@ -51,11 +51,11 @@ class Attendee(models.Model):
 
 class Review(models.Model):
     comments = models.TextField()
-    satisfaction = models.CharField(max_length=50)
-    usefulness = models.CharField(max_length=50)
+    satisfaction = models.CharField(max_length=50)  # This field should be present
+    usefulness = models.CharField(max_length=50)    # This field should be present
     review_date = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=50)
 
 
     def __str__(self):
-        return f"Satisfaction: {self.satisfaction}, Usefulness: {self.usefulness}, Date: {self.review_date}"
+        return f"Satisfaction: {self.satisfaction}, Usefulness: {self.usefulness}, Category: {self.category}, Date: {self.review_date}"
