@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import Attendee, Review, Table
 
+admin.site.site_header = "Panel de Administración de Congreso Adopción"
+admin.site.site_title = "Administración de Congreso Adopción"
+admin.site.index_title = "Bienvenido al Panel de Administración"
+
 # Register your models here.
 
 class AttendeeAdmin(admin.ModelAdmin):
@@ -17,6 +21,10 @@ class AttendeeAdmin(admin.ModelAdmin):
 
     registration_type.short_description = "Registration Type"
 
+    # Restringir permisos de edición
+    def has_change_permission(self, request, obj=None):
+        return request.user.has_perm('registry_app.view_attendee')  # Cambia 'yourapp' por el nombre de tu app
+
 class TableAdmin(admin.ModelAdmin):
     list_display = ('table_number', 'max_seats')  # Display table number and max seats
     list_editable = ('max_seats',)  # Allow editing max seats directly in the admin list view
@@ -26,6 +34,10 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ('satisfaction', 'usefulness', 'category', 'comments', 'review_date')
     fields = ('satisfaction', 'usefulness', 'category', 'comments', 'review_date')  # Include 'category' in the detail view
 
+    # Restringir permisos de edición
+    def has_change_permission(self, request, obj=None):
+        return request.user.has_perm('registry_app.change_review')
+    
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Table, TableAdmin)
 admin.site.register(Review, ReviewAdmin)
