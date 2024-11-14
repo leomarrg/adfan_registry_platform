@@ -5,11 +5,26 @@ from django.http import HttpResponseRedirect
 from django.urls import path
 from .models import Attendee, Table, Review
 from django.http import JsonResponse
+from django.http import HttpResponse
 
 
 admin.site.site_header = "Panel de Administración de Congreso Adopción"
 admin.site.site_title = "Administración de Congreso Adopción"
 admin.site.index_title = "Bienvenido al Panel de Administración"
+
+def export_to_text(modeladmin, request, queryset):
+    # Set up the HTTP response with a plain text content type
+    response = HttpResponse(content_type='text/plain')
+    response['Content-Disposition'] = 'attachment; filename="attendees_list.txt"'
+
+    # Loop through each attendee in the queryset and write their info to the response
+    for attendee in queryset:
+        response.write(f"Name: {attendee.name} {attendee.last_name}, Email: {attendee.email}\n")  # Customize the fields as needed
+
+    return response
+
+# Add the custom action to your Admin class
+export_to_text.short_description = "Export selected attendees to text file"
 
 class AttendeeAdmin(admin.ModelAdmin):
     list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'mark_as_arrived_button')
@@ -17,6 +32,7 @@ class AttendeeAdmin(admin.ModelAdmin):
     list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
     list_editable = ['table', 'seat_number']
     search_fields = ['name', 'last_name']
+    actions = [export_to_text]
 
     class Media:
         js = ('js/dynamic_search.js',)  # Add the JavaScript for dynamic search
