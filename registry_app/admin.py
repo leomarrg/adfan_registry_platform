@@ -1,16 +1,22 @@
 from django.contrib import admin
-from .models import Attendee, Review, Table
+from django.db.models import Count, F
+from django.utils.html import format_html
+from django.http import HttpResponseRedirect
+from django.urls import path
+from .models import Attendee, Table, Review
+
 
 admin.site.site_header = "Panel de Administración de Congreso Adopción"
 admin.site.site_title = "Administración de Congreso Adopción"
 admin.site.index_title = "Bienvenido al Panel de Administración"
 
-# Register your models here.
-
 class AttendeeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'date_of_birth', 'registration_type', 'registration_date')
-    list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')  # Add filters for categories
-    list_editable = ('table', 'seat_number', 'arrived')
+    list_display = (
+        'id', 'name', 'last_name', 'email', 'table', 'seat_number', 
+        'arrived', 'date_of_birth', 'registration_type', 'mark_as_arrived_button'
+    )
+    list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
+    list_editable = ['table']
 
     def registration_type(self, obj):
         if obj.pre_registered:
@@ -21,13 +27,61 @@ class AttendeeAdmin(admin.ModelAdmin):
 
     registration_type.short_description = "Registration Type"
 
-    # Restringir permisos de edición
-    def has_change_permission(self, request, obj=None):
-        return request.user.has_perm('registry_app.view_attendee')  # Cambia 'yourapp' por el nombre de tu app
+    # Custom buttons to mark/unmark attendees as arrived
+    def mark_as_arrived_button(self, obj):
+        if not obj.arrived:
+            return format_html('<a class="button" href="{}">Mark as Arrived</a>', f'{obj.id}/mark_arrived/')
+        else:
+            return format_html('<a class="button" href="{}">Unmark as Arrived</a>', f'{obj.id}/unmark_arrived/')
+
+    mark_as_arrived_button.short_description = "Mark/Unmark as Arrived"
+    mark_as_arrived_button.allow_tags = True
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('<int:attendee_id>/mark_arrived/', self.admin_site.admin_view(self.mark_as_arrived), name='mark_as_arrived'),
+            path('<int:attendee_id>/unmark_arrived/', self.admin_site.admin_view(self.unmark_as_arrived), name='unmark_as_arrived'),
+        ]
+        return custom_urls + urls
+
+    def mark_as_arrived(self, request, attendee_id):
+        attendee = Attendee.objects.get(pk=attendee_id)
+        if not attendee.arrived:
+            attendee.arrived = True
+            if attendee.table is None or attendee.seat_number is None:
+                attendee.table, attendee.seat_number = self.get_available_seat()
+            attendee.save()
+            self.message_user(request, "Attendee marked as arrived and seat assigned.")
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
+
+    def unmark_as_arrived(self, request, attendee_id):
+        attendee = Attendee.objects.get(pk=attendee_id)
+        if attendee.arrived:
+            attendee.arrived = False
+            attendee.save()
+            self.message_user(request, "Attendee unmarked as arrived.")
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
+
+    def get_available_seat(self):
+        # Logic to get the next available seat in a table
+        available_table = Table.objects.annotate(
+            attendee_count=Count('attendee')
+        ).filter(
+            attendee_count__lt=F('max_seats')
+        ).first()
+
+        if available_table:
+            assigned_seats = Attendee.objects.filter(table=available_table).values_list('seat_number', flat=True)
+            available_seat = next((seat for seat in range(1, available_table.max_seats + 1) if seat not in assigned_seats), None)
+            if available_seat is not None:
+                return available_table, available_seat
+
+        return None, None  # If no seats are available
+    
 
 class TableAdmin(admin.ModelAdmin):
     list_display = ('table_number', 'max_seats')  # Display table number and max seats
-    list_editable = ('max_seats',)  # Allow editing max seats directly in the admin list view
     ordering = ['table_number']
 
 class ReviewAdmin(admin.ModelAdmin):
