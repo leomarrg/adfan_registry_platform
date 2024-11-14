@@ -17,8 +17,8 @@ class Table(models.Model):
         return self.current_attendees_count() < self.max_seats
 
 class Attendee(models.Model):
-    name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, db_index=True)
+    last_name = models.CharField(max_length=100, db_index=True)
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
     phone_number = models.CharField(max_length=15)
