@@ -4,6 +4,7 @@ from django.utils.html import format_html
 from django.http import HttpResponseRedirect
 from django.urls import path
 from .models import Attendee, Table, Review
+from django.http import JsonResponse
 
 
 admin.site.site_header = "Panel de Administración de Congreso Adopción"
@@ -17,6 +18,30 @@ class AttendeeAdmin(admin.ModelAdmin):
     )
     list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
     list_editable = ['table']
+    search_fields = ['name', 'last_name']
+
+    class Media:
+        js = ('js/dynamic_search.js',)  # Add the JavaScript for dynamic search
+
+
+    # Add the autocomplete URL
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('attendee_autocomplete/', self.admin_site.admin_view(self.autocomplete_view), name='attendee_autocomplete'),
+            path('<int:attendee_id>/mark_arrived/', self.admin_site.admin_view(self.mark_as_arrived), name='mark_as_arrived'),
+            path('<int:attendee_id>/unmark_arrived/', self.admin_site.admin_view(self.unmark_as_arrived), name='unmark_as_arrived'),
+        ]
+        return custom_urls + urls
+
+    # Custom view to handle autocomplete
+    def autocomplete_view(self, request):
+        if 'term' in request.GET:
+            qs = Attendee.objects.filter(name__icontains=request.GET.get('term')) | Attendee.objects.filter(last_name__icontains=request.GET.get('term'))
+            attendees = list(qs.values('id', 'name', 'last_name'))
+            return JsonResponse(attendees, safe=False)
+
+        return JsonResponse([], safe=False)
 
     def registration_type(self, obj):
         if obj.pre_registered:
