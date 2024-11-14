@@ -12,7 +12,7 @@ admin.site.site_title = "Administración de Congreso Adopción"
 admin.site.index_title = "Bienvenido al Panel de Administración"
 
 class AttendeeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'marked_as_arrived_button')
+    list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'mark_as_arrived_button')
     list_select_related = ('table',)
     list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
     list_editable = ['table', 'seat_number']
