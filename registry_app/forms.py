@@ -50,9 +50,10 @@ class ReviewForm(forms.ModelForm):
 
     CATEGORY_CHOICES = [
         ('', 'Seleccione una opción'),  # Placeholder option with empty value
-        ('option1', 'Option 1'),
-        ('option2', 'Option 2'),
-        ('option3', 'Option 3'),
+        ('Diversidad Funcional: Retos y Adapciones en la Adopcion', 'Diversidad Funcional: Retos y Adapciones en la Adopcion'),
+        ('Lcda. Mirinda Vicenti', 'Lcda. Mirinda Vicenti'),
+        ('Dra. Marta Hernandez', 'Dra. Marta Hernandez'),
+        ('Nadya Fernandez', 'Nadya Fernandez')
     ]
 
     category = forms.ChoiceField(
