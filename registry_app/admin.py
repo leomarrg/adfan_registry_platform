@@ -12,12 +12,11 @@ admin.site.site_title = "Administración de Congreso Adopción"
 admin.site.index_title = "Bienvenido al Panel de Administración"
 
 class AttendeeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived')
+    list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'marked_as_arrived_button')
     list_select_related = ('table',)
-    list_filter = ('pre_registered', 'registered_at_event', 'arrived')
+    list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
     list_editable = ['table', 'seat_number']
     search_fields = ['name', 'last_name']
-    list_per_page = 20
 
     class Media:
         js = ('js/dynamic_search.js',)  # Add the JavaScript for dynamic search
