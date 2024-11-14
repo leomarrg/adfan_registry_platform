@@ -13,11 +13,11 @@ admin.site.index_title = "Bienvenido al Panel de Administración"
 
 class AttendeeAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'last_name', 'email', 'table', 'seat_number', 
-        'arrived', 'date_of_birth', 'registration_type', 'mark_as_arrived_button'
+        'name', 'last_name', 'email', 'table', 'seat_number', 
+        'arrived', 'mark_as_arrived_button', 'date_of_birth', 'registration_type'
     )
     list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
-    list_editable = ['table']
+    list_editable = ['table', 'seat_number']
     search_fields = ['name', 'last_name']
 
     class Media:
