@@ -19,7 +19,7 @@ def export_to_text(modeladmin, request, queryset):
 
     # Loop through each attendee in the queryset and write their info to the response
     for attendee in queryset:
-        response.write(f"Name: {attendee.name} {attendee.last_name}, Email: {attendee.email}\n")  # Customize the fields as needed
+        response.write(f"{attendee.name} {attendee.last_name}\n")  # Customize the fields as needed
 
     return response
 
