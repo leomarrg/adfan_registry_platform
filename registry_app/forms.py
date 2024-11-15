@@ -50,10 +50,10 @@ class ReviewForm(forms.ModelForm):
 
     CATEGORY_CHOICES = [
         ('', 'Seleccione una opción'),  # Placeholder option with empty value
-        ('Diversidad Funcional: Retos y Adapciones en la Adopcion', 'Diversidad Funcional: Retos y Adapciones en la Adopcion'),
-        ('Lcda. Mirinda Vicenti', 'Lcda. Mirinda Vicenti'),
-        ('Dra. Marta Hernandez', 'Dra. Marta Hernandez'),
-        ('Nadya Fernandez', 'Nadya Fernandez')
+        ('Panel: Diversidad Funcional: Retos y Adaptaciones en la Adopción', 'Panel: Diversidad Funcional: Retos y Adaptaciones en la Adopción'),
+        ('Impacto Legal y Social de la Adopción en el Bienestar Familiar', 'Impacto Legal y Social de la Adopción en el Bienestar Familiar'),
+        ('La Musicoterapia: alcance e impacto en metas clínicas desde el arte de la música', 'La Musicoterapia: alcance e impacto en metas clínicas desde el arte de la música'),
+        ('Crear una Vida en Balance: Medicina Integrativa', 'Crear una Vida en Balance: Medicina Integrativa')
     ]
 
     category = forms.ChoiceField(
