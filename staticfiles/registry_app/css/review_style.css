@@ -1237,6 +1237,7 @@ input[type="radio"]:checked + .custom-radio:after {
         text-align: center;
         margin-bottom: 4vw;
         margin-top: 12vh;
+        padding-top: 15px;
     }
 
     /* Container for radio buttons */
@@ -1510,6 +1511,7 @@ input[type="radio"]:checked + .custom-radio:after {
         text-align: center;
         margin-bottom: 4vw;
         margin-top: 6vh;
+        padding-top: 15px;
     }
 
     /* Container for radio buttons */
@@ -1785,6 +1787,7 @@ input[type="radio"]:checked + .custom-radio:after {
         text-align: center;
         margin-bottom: 4vw;
         margin-top: 10vh;
+        padding-top: 15px;
     }
 
     /* Container for radio buttons */
@@ -2060,7 +2063,8 @@ input[type="radio"]:checked + .custom-radio:after {
         font-size: larger;
         text-align: center;
         margin-bottom: 4vw;
-        margin-top: 6vh;
+        margin-top: 5vh;
+        padding-top: 15px;
     }
 
     /* Container for radio buttons */
