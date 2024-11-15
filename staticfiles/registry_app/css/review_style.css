@@ -82,6 +82,7 @@ header {
     transform: translate(-50%, -50%);
     height: 11.1vh;
     z-index: 1;
+    margin-bottom: 25px;
 }
 
 .adfan-image {
@@ -356,6 +357,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 11.1vh;
         z-index: 1;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
@@ -630,6 +632,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 12.1vh;
         z-index: 1;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
@@ -905,6 +908,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 12.1vh;
         z-index: 1;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
@@ -1180,6 +1184,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 8.1vh;
         z-index: 1;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
@@ -1452,6 +1457,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 7.1vh;
         z-index: 1;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
@@ -1726,7 +1732,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 6.7vh;
         z-index: 1;
-        margin-bottom: 5px;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
@@ -2002,7 +2008,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 7.1vh;
         z-index: 1;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
     }
 
     .adfan-image {
