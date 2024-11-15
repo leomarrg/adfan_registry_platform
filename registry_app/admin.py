@@ -90,7 +90,6 @@ class AttendeeAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         custom_urls = [
-            path('attendee_autocomplete/', self.admin_site.admin_view(self.autocomplete_view), name='attendee_autocomplete'),
             path('<int:attendee_id>/mark_arrived/', self.admin_site.admin_view(self.mark_as_arrived), name='mark_as_arrived'),
             path('<int:attendee_id>/unmark_arrived/', self.admin_site.admin_view(self.unmark_as_arrived), name='unmark_as_arrived'),
         ]
