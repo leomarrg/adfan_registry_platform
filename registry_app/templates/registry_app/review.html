@@ -6,42 +6,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
     <title>Leave a Review</title>
     <link rel="stylesheet" href="{% static 'registry_app/css/review_style.css' %}">
-
 </head>
 <body>
     <header>
     </header>
     <div class="form-wrapper">
-        <img src="{% static 'img/Home@2x.png' %}" alt="" class="home-image">
-        <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="" class="logo-image">
-        <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="" class="adfan-image">
-        <img src="{% static 'img/Heart-Background@4x.png' %}" alt="" class="heart-image">
-        <img src="{% static 'img/Family@4x.png' %}" alt="" class="family-image">
+        <img src="{% static 'img/Home@2x.png' %}" alt="Home" class="home-image">
+        <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="Congreso Logo" class="logo-image">
+        <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="ADFAN Logo" class="adfan-image">
+        <img src="{% static 'img/Heart-Background@4x.png' %}" alt="Heart Background" class="heart-image">
+        <img src="{% static 'img/Family@4x.png' %}" alt="Family" class="family-image">
         <div class="form-container">
             <header></header>
-            <p class="titulo">¡Comparte tu opinión!</p>
-                <!-- Dropdown Menu Above Header -->              
+            
 
-                {% if messages %}
-                <div>
-                    {% for message in messages %}
-                        <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">
-                            {{ message }}
-                        </p>
-                    {% endfor %}
-                </div>
+            <!-- Display messages -->
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">{{ message }}</p>
+                {% endfor %}
+            </div>
             {% endif %}
 
+            <!-- Form Section -->
             <form method="post">
-                <select name="category" class="dropdown">
-                    {% for value, label in form.category.field.choices %}
-                        <option value="{{ value }}" {% if form.category.value == value %}selected{% endif %}>{{ label }}</option>
-                    {% endfor %}
-                </select>  
                 {% csrf_token %}
+
+                <!-- Category Dropdown -->
+                <div class="dropdown-container">
+                    <select name="category" class="dropdown">
+                        {% for value, label in form.category.field.choices %}
+                            <option value="{{ value }}" {% if form.category.value == value %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
                 
                 <!-- Satisfaction Question -->
                 <div class="form-satisfaction">
@@ -58,7 +59,7 @@
                         {% endfor %}
                     </div>
                 </div>
-            
+
                 <!-- Usefulness Question -->
                 <div class="form-usefulness">
                     <div class="form-label">
@@ -74,7 +75,7 @@
                         {% endfor %}
                     </div>
                 </div>
-            
+
                 <!-- Comments Field -->
                 <div class="form-comments">
                     <div class="form-label comment-label">
@@ -82,10 +83,10 @@
                     </div>
                     {{ form.comments }}
                 </div>
-            
+
+                <!-- Submit Button -->
                 <button type="submit" class="submit-button">Someter</button>
             </form>
-                       
         </div>
         <p class="approve_messg">Aprobado por la OCE-SA-2024-13208</p>
     </div>
