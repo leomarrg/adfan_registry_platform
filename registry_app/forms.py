@@ -33,7 +33,7 @@ class ReviewForm(forms.ModelForm):
         widget=forms.RadioSelect,
         label="¿Está satisfecho con la información que recibió?",
         required=True,
-        error_messages={'required': 'Por favor, selecciona una opción de satisfacción.'}
+        error_messages={'Por favor, selecciona una opción de satisfacción.'}
     )
 
     usefulness = forms.ChoiceField(
@@ -45,7 +45,7 @@ class ReviewForm(forms.ModelForm):
         widget=forms.RadioSelect,
         label="¿La información compartida hoy es de utilidad para la labor que realiza?",
         required=True,
-        error_messages={'required': 'Por favor, selecciona una opción de utilidad.'}
+        error_messages={'Por favor, selecciona una opción de utilidad.'}
     )
 
     CATEGORY_CHOICES = [
@@ -60,7 +60,7 @@ class ReviewForm(forms.ModelForm):
         choices=CATEGORY_CHOICES,
         label="Seleccione una opción",
         required=True,
-        error_messages={'required': 'Por favor, selecciona una opción de la lista.'}
+        error_messages={'Por favor, selecciona una opción de la lista.'}
     )
     class Meta:
         model = Review
