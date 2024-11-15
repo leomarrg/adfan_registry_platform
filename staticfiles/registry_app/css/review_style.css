@@ -1457,7 +1457,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 7.1vh;
         z-index: 1;
-        margin-bottom: 25px;
+        margin-bottom: 50px;
     }
 
     .adfan-image {
@@ -1732,7 +1732,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 6.7vh;
         z-index: 1;
-        margin-bottom: 25px;
+        margin-bottom: 50px;
     }
 
     .adfan-image {
@@ -2008,7 +2008,7 @@ input[type="radio"]:checked + .custom-radio:after {
         transform: translate(-50%, -50%);
         height: 7.1vh;
         z-index: 1;
-        margin-bottom: 25px;
+        margin-bottom: 50px;
     }
 
     .adfan-image {
@@ -2060,7 +2060,7 @@ input[type="radio"]:checked + .custom-radio:after {
         font-size: larger;
         text-align: center;
         margin-bottom: 4vw;
-        margin-top: 3vh;
+        margin-top: 6vh;
     }
 
     /* Container for radio buttons */
