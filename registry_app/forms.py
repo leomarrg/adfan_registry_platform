@@ -56,11 +56,11 @@ class ReviewForm(forms.ModelForm):
         ('Crear una Vida en Balance: Medicina Integrativa', 'Crear una Vida en Balance: Medicina Integrativa')
     ]
 
-    category = forms.ChoiceField(
-        choices=CATEGORY_CHOICES,
-        label="Seleccione una opción",
-        required=True,
-        error_messages={'required': 'Por favor, selecciona una opción de la lista.'}
+    # category = forms.ChoiceField(
+    #     choices=CATEGORY_CHOICES,
+    #     label="Seleccione una opción",
+    #     required=True,
+    #     error_messages={'required': 'Por favor, selecciona una opción de la lista.'}
     )
     class Meta:
         model = Review
