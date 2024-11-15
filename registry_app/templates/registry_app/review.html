@@ -33,6 +33,7 @@
             <!-- Display messages -->
             {% if messages %}
             <div>
+                <br><br><br>
                 {% for message in messages %}
                     <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">{{ message }}</p>
                 {% endfor %}
