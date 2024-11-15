@@ -61,7 +61,7 @@ class ReviewForm(forms.ModelForm):
     #     label="Seleccione una opción",
     #     required=True,
     #     error_messages={'required': 'Por favor, selecciona una opción de la lista.'}
-    )
+    #)
     class Meta:
         model = Review
         fields = ['satisfaction', 'usefulness', 'comments', 'category']
