@@ -13,16 +13,25 @@
     <div class="form-wrapper">
 
         {% with has_success=False %}
+            <!-- First loop to determine if there's a success message -->
             {% if messages %}
                 {% for message in messages %}
                     {% if message.tags == 'success' %}
                         {% with has_success=True %}
-                            <div class="message-success">
-                                <p>{{ message }}</p>
-                            </div>
                         {% endwith %}
                     {% endif %}
                 {% endfor %}
+            {% endif %}
+
+            <!-- Only show success message if it exists -->
+            {% if has_success %}
+                <div class="message-success">
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <p>{{ message }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             {% endif %}
 
             <!-- Only show the form if there is no success message -->
