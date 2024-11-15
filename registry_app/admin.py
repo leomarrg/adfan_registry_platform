@@ -33,6 +33,8 @@ class AttendeeAdmin(admin.ModelAdmin):
     list_editable = ['table', 'seat_number']
     search_fields = ['name', 'last_name']
     actions = [export_to_text]
+    list_per_page = 20  # Adjust this number to what suits your needs
+
 
     class Media:
         js = ('js/dynamic_search.js',)  # Add the JavaScript for dynamic search
