@@ -27,59 +27,10 @@ def export_to_text(modeladmin, request, queryset):
 export_to_text.short_description = "Export selected attendees to text file"
 
 class AttendeeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'last_name', 'email', 'table', 'seat_number', 'arrived', 'mark_as_arrived_button')
-    list_select_related = ('table',)
-    list_filter = ('pre_registered', 'registered_at_event', 'arrived', 'table')
-    list_editable = ['table', 'seat_number']
+    list_display = ('name', 'last_name', 'email', 'arrived', 'mark_as_arrived_button')
     search_fields = ['name', 'last_name']
     actions = [export_to_text]
     list_per_page = 20  # Adjust this number to what suits your needs
-
-    # Custom buttons to mark/unmark attendees as arrived
-    def mark_as_arrived_button(self, obj):
-        if not obj.arrived:
-            return format_html('<a class="button" href="{}">Mark as Arrived</a>', f'{obj.id}/mark_arrived/')
-        else:
-            return format_html('<a class="button" href="{}">Unmark as Arrived</a>', f'{obj.id}/unmark_arrived/')
-
-    mark_as_arrived_button.short_description = "Mark/Unmark as Arrived"
-    mark_as_arrived_button.allow_tags = True
-
-    def get_urls(self):
-        urls = super().get_urls()
-        custom_urls = [
-            path('<int:attendee_id>/mark_arrived/', self.admin_site.admin_view(self.mark_as_arrived), name='mark_as_arrived'),
-            path('<int:attendee_id>/unmark_arrived/', self.admin_site.admin_view(self.unmark_as_arrived), name='unmark_as_arrived'),
-        ]
-        return custom_urls + urls
-
-    def mark_as_arrived(self, request, attendee_id):
-        attendee = Attendee.objects.get(pk=attendee_id)
-        if not attendee.arrived:
-            attendee.arrived = True
-
-            # Assign seat if the attendee already has a table assigned
-            if attendee.table:
-                seat_count = Attendee.objects.filter(table=attendee.table).count()
-                if seat_count < 12:  # Check if the table has less than 12 attendees
-                    attendee.seat_number = seat_count + 1
-                else:
-                    self.message_user(request, "Table is full. Seat not assigned.", level="warning")
-            else:
-                self.message_user(request, "No table assigned. Only marked as arrived.", level="info")
-
-            attendee.save()
-            self.message_user(request, "Attendee marked as arrived.")
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
-
-    def unmark_as_arrived(self, request, attendee_id):
-        attendee = Attendee.objects.get(pk=attendee_id)
-        if attendee.arrived:
-            attendee.arrived = False
-            attendee.seat_number = None  # Remove seat assignment
-            attendee.save()
-            self.message_user(request, "Attendee unmarked as arrived and seat unassigned.")
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
 
 
     # class Media:
@@ -114,41 +65,41 @@ class AttendeeAdmin(admin.ModelAdmin):
 
     registration_type.short_description = "Registration Type"
 
-    # # Custom buttons to mark/unmark attendees as arrived
-    # def mark_as_arrived_button(self, obj):
-    #     if not obj.arrived:
-    #         return format_html('<a class="button" href="{}">Mark as Arrived</a>', f'{obj.id}/mark_arrived/')
-    #     else:
-    #         return format_html('<a class="button" href="{}">Unmark as Arrived</a>', f'{obj.id}/unmark_arrived/')
+    # Custom buttons to mark/unmark attendees as arrived
+    def mark_as_arrived_button(self, obj):
+        if not obj.arrived:
+            return format_html('<a class="button" href="{}">Mark as Arrived</a>', f'{obj.id}/mark_arrived/')
+        else:
+            return format_html('<a class="button" href="{}">Unmark as Arrived</a>', f'{obj.id}/unmark_arrived/')
 
-    # mark_as_arrived_button.short_description = "Mark/Unmark as Arrived"
-    # mark_as_arrived_button.allow_tags = True
+    mark_as_arrived_button.short_description = "Mark/Unmark as Arrived"
+    mark_as_arrived_button.allow_tags = True
 
-    # def get_urls(self):
-    #     urls = super().get_urls()
-    #     custom_urls = [
-    #         path('<int:attendee_id>/mark_arrived/', self.admin_site.admin_view(self.mark_as_arrived), name='mark_as_arrived'),
-    #         path('<int:attendee_id>/unmark_arrived/', self.admin_site.admin_view(self.unmark_as_arrived), name='unmark_as_arrived'),
-    #     ]
-    #     return custom_urls + urls
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('<int:attendee_id>/mark_arrived/', self.admin_site.admin_view(self.mark_as_arrived), name='mark_as_arrived'),
+            path('<int:attendee_id>/unmark_arrived/', self.admin_site.admin_view(self.unmark_as_arrived), name='unmark_as_arrived'),
+        ]
+        return custom_urls + urls
 
-    # def mark_as_arrived(self, request, attendee_id):
-    #     attendee = Attendee.objects.get(pk=attendee_id)
-    #     if not attendee.arrived:
-    #         attendee.arrived = True
-    #         if attendee.table is None or attendee.seat_number is None:
-    #             attendee.table, attendee.seat_number = self.get_available_seat()
-    #         attendee.save()
-    #         self.message_user(request, "Attendee marked as arrived and seat assigned.")
-    #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
+    def mark_as_arrived(self, request, attendee_id):
+        attendee = Attendee.objects.get(pk=attendee_id)
+        if not attendee.arrived:
+            attendee.arrived = True
+            if attendee.table is None or attendee.seat_number is None:
+                attendee.table, attendee.seat_number = self.get_available_seat()
+            attendee.save()
+            self.message_user(request, "Attendee marked as arrived and seat assigned.")
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
 
-    # def unmark_as_arrived(self, request, attendee_id):
-    #     attendee = Attendee.objects.get(pk=attendee_id)
-    #     if attendee.arrived:
-    #         attendee.arrived = False
-    #         attendee.save()
-    #         self.message_user(request, "Attendee unmarked as arrived.")
-    #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
+    def unmark_as_arrived(self, request, attendee_id):
+        attendee = Attendee.objects.get(pk=attendee_id)
+        if attendee.arrived:
+            attendee.arrived = False
+            attendee.save()
+            self.message_user(request, "Attendee unmarked as arrived.")
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
 
     # def get_available_seat(self):
     #     # Logic to get the next available seat in a table
