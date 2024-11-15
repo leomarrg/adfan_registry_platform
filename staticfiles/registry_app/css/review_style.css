@@ -289,7 +289,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: auto;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -564,7 +563,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: auto;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -840,7 +838,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: auto;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -1116,7 +1113,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: auto;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -1390,7 +1386,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: auto;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -1665,7 +1660,6 @@ input[type="radio"]:checked + .custom-radio:after {
 @media (max-width: 375px) {
     body, html {
         overflow-x: hidden;
-        overflow-y: auto;
         width: 100%;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
@@ -1942,7 +1936,6 @@ input[type="radio"]:checked + .custom-radio:after {
     
     body, html {
         overflow-x: hidden;
-        overflow-y: auto;
         width: 100%;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
