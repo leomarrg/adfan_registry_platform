@@ -36,8 +36,8 @@ class AttendeeAdmin(admin.ModelAdmin):
     list_per_page = 20  # Adjust this number to what suits your needs
 
 
-    class Media:
-        js = ('js/dynamic_search.js',)  # Add the JavaScript for dynamic search
+    # class Media:
+    #     js = ('js/dynamic_search.js',)  # Add the JavaScript for dynamic search
 
 
     # Add the autocomplete URL
@@ -50,15 +50,15 @@ class AttendeeAdmin(admin.ModelAdmin):
         ]
         return custom_urls + urls
 
-    def autocomplete_view(self, request):
-        if 'term' in request.GET:
-            term = request.GET.get('term')
-            # Use 'istartswith' for prefix-based matching
-            qs = Attendee.objects.filter(name__istartswith=term) | Attendee.objects.filter(last_name__istartswith=term)
-            attendees = list(qs.values('id', 'name'))
-            return JsonResponse(attendees, safe=False)
+    # def autocomplete_view(self, request):
+    #     if 'term' in request.GET:
+    #         term = request.GET.get('term')
+    #         # Use 'istartswith' for prefix-based matching
+    #         qs = Attendee.objects.filter(name__istartswith=term) | Attendee.objects.filter(last_name__istartswith=term)
+    #         attendees = list(qs.values('id', 'name'))
+    #         return JsonResponse(attendees, safe=False)
 
-        return JsonResponse([], safe=False)
+    #     return JsonResponse([], safe=False)
 
     def registration_type(self, obj):
         if obj.pre_registered:
