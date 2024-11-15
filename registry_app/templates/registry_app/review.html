@@ -24,12 +24,14 @@
             <p class="titulo">¡Comparte tu opinión!</p>
                 <!-- Dropdown Menu Above Header -->              
 
-            {% if messages %}
-                <ul>
+                {% if messages %}
+                <div>
                     {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">
+                            {{ message }}
+                        </p>
                     {% endfor %}
-                </ul>
+                </div>
             {% endif %}
 
             <form method="post">
