@@ -230,7 +230,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
 /* Form styling for margin */
 .form-satisfaction, .form-usefulness, .form-comments {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .custom-textarea {
@@ -505,7 +505,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
@@ -780,7 +780,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
@@ -1056,7 +1056,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
@@ -1330,7 +1330,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
@@ -1604,7 +1604,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
@@ -1880,7 +1880,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
