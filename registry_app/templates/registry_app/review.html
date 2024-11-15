@@ -30,15 +30,7 @@
                 </div>
             
 
-            <!-- Display messages -->
-            {% if messages %}
-            <div>
-                <br><br><br>
-                {% for message in messages %}
-                    <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">{{ message }}</p>
-                {% endfor %}
-            </div>
-            {% endif %}
+            
 
             <!-- Form Section -->
             <form method="post">
@@ -98,6 +90,16 @@
             </form>
         </div>
         <p class="approve_messg">Aprobado por la OCE-SA-2024-13208</p>
+    </div>
+    {% endif %}
+
+    <!-- Display messages -->
+    {% if messages %}
+    <div>
+        <br><br><br>
+        {% for message in messages %}
+            <p class="{% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">{{ message }}</p>
+        {% endfor %}
     </div>
     {% endif %}
 </body>
