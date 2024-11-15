@@ -50,10 +50,11 @@ class AttendeeAdmin(admin.ModelAdmin):
         ]
         return custom_urls + urls
 
-    # Custom view to handle autocomplete
     def autocomplete_view(self, request):
         if 'term' in request.GET:
-            qs = Attendee.objects.filter(name__icontains=request.GET.get('term')) | Attendee.objects.filter(last_name__icontains=request.GET.get('term'))
+            term = request.GET.get('term')
+            # Use 'istartswith' for prefix-based matching
+            qs = Attendee.objects.filter(name__istartswith=term) | Attendee.objects.filter(last_name__istartswith=term)
             attendees = list(qs.values('id', 'name', 'last_name'))
             return JsonResponse(attendees, safe=False)
 
