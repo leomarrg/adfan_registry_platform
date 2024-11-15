@@ -291,6 +291,9 @@ input[type="radio"]:checked + .custom-radio:after {
     margin-bottom: 10px;
     position: relative;
     top: -25px; /* Mover el mensaje ligeramente hacia arriba */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 @media (max-width: 1280px) {
