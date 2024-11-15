@@ -61,7 +61,7 @@ def leave_review(request):
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Gracias por tu retroalimentación!")
+            messages.success(request, "¡Gracias por tu retroalimentación!")
             return redirect('leave_review')
         else:
             logger.error(f"Form errors: {form.errors}")
