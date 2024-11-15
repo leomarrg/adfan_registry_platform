@@ -58,7 +58,7 @@ header {
     width: 100%;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     font-size: 19px;
     font-weight: 600;
     margin-bottom: 20px;
@@ -229,7 +229,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
 /* Form styling for margin */
 .form-satisfaction, .form-usefulness, .form-comments {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .custom-textarea {
@@ -504,7 +504,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .custom-textarea {
@@ -779,7 +779,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .custom-textarea {
@@ -1055,7 +1055,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .custom-textarea {
@@ -1117,7 +1117,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: hidden;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -1329,7 +1328,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .custom-textarea {
@@ -1391,7 +1390,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: hidden;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -1603,7 +1601,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .custom-textarea {
@@ -1667,7 +1665,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: hidden;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -1879,7 +1876,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .custom-textarea {
@@ -1944,7 +1941,6 @@ input[type="radio"]:checked + .custom-radio:after {
     body, html {
         overflow-x: hidden;
         width: 100%;
-        overflow-y: hidden;
         font-family: 'Ubuntu';
         src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
         font-weight: 400;
@@ -2156,7 +2152,7 @@ input[type="radio"]:checked + .custom-radio:after {
 
     /* Form styling for margin */
     .form-satisfaction, .form-usefulness, .form-comments {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .custom-textarea {
