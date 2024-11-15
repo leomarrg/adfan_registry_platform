@@ -23,9 +23,11 @@
                 <img src="{% static 'img/Family@4x.png' %}" alt="Family" class="family-image">
             </header>
             <br><br>
-            <div class="titulo">
-            <p>¡Comparte tu opinión!</p>
-            <div>
+            <!-- Only show the title and form if there is no success message -->
+            {% if not messages %}
+                <div class="titulo">
+                    <p>¡Comparte tu opinión!</p>
+                </div>
 
             <!-- Display messages -->
             {% if messages %}
