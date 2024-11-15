@@ -284,6 +284,14 @@ input[type="radio"]:checked + .custom-radio:after {
     font-size: 9px;
 }
 
+.message-success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    top: -25px; /* Mover el mensaje ligeramente hacia arriba */
+}
+
 @media (max-width: 1280px) {
     body, html {
         overflow-x: hidden;
@@ -1745,7 +1753,6 @@ input[type="radio"]:checked + .custom-radio:after {
         opacity: 0.3;
         size: 10px
     }
-
 
     .family-image {
         bottom: -6vw;
