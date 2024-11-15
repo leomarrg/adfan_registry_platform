@@ -105,21 +105,21 @@ class AttendeeAdmin(admin.ModelAdmin):
             self.message_user(request, "Attendee unmarked as arrived.")
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
 
-    def get_available_seat(self):
-        # Logic to get the next available seat in a table
-        available_table = Table.objects.annotate(
-            attendee_count=Count('attendee')
-        ).filter(
-            attendee_count__lt=F('max_seats')
-        ).first()
+    # def get_available_seat(self):
+    #     # Logic to get the next available seat in a table
+    #     available_table = Table.objects.annotate(
+    #         attendee_count=Count('attendee')
+    #     ).filter(
+    #         attendee_count__lt=F('max_seats')
+    #     ).first()
 
-        if available_table:
-            assigned_seats = Attendee.objects.filter(table=available_table).values_list('seat_number', flat=True)
-            available_seat = next((seat for seat in range(1, available_table.max_seats + 1) if seat not in assigned_seats), None)
-            if available_seat is not None:
-                return available_table, available_seat
+    #     if available_table:
+    #         assigned_seats = Attendee.objects.filter(table=available_table).values_list('seat_number', flat=True)
+    #         available_seat = next((seat for seat in range(1, available_table.max_seats + 1) if seat not in assigned_seats), None)
+    #         if available_seat is not None:
+    #             return available_table, available_seat
 
-        return None, None  # If no seats are available
+    #     return None, None  # If no seats are available
     
 
 class TableAdmin(admin.ModelAdmin):
