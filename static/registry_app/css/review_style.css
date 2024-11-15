@@ -137,7 +137,7 @@ header {
     font-size: x-large;
     text-align: center;
     margin-bottom: 1vw;
-    margin-top: 7vh;
+    margin-top: 8vh;
 }
 
 /* Container for radio buttons */
@@ -411,7 +411,7 @@ input[type="radio"]:checked + .custom-radio:after {
         font-size: x-large;
         text-align: center;
         margin-bottom: 4vw;
-        margin-top: 7vh;
+        margin-top: 8vh;
     }
 
     /* Container for radio buttons */
@@ -1504,7 +1504,7 @@ input[type="radio"]:checked + .custom-radio:after {
         font-size: larger;
         text-align: center;
         margin-bottom: 4vw;
-        margin-top: 6vh;
+        margin-top: 7vh;
     }
 
     /* Container for radio buttons */
@@ -1930,7 +1930,7 @@ input[type="radio"]:checked + .custom-radio:after {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 310px) {
     
     body, html {
         overflow-x: hidden;
@@ -2054,8 +2054,8 @@ input[type="radio"]:checked + .custom-radio:after {
         font-weight: 600;
         font-size: larger;
         text-align: center;
-        margin-bottom: 4vw;
-        margin-top: 3vh;
+        margin-bottom: 5vw;
+        margin-top: 7vh;
     }
 
     /* Container for radio buttons */
