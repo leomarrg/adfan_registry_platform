@@ -12,92 +12,95 @@
     </header>
     <div class="form-wrapper">
 
-        <!-- Check for success messages and hide everything else if present -->
-        {% if messages %}
-            {% for message in messages %}
-                {% if message.tags == 'success' %}
-                    <div class="message-success">
-                        <p>{{ message }}</p>
+        {% with has_success=False %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                        {% with has_success=True %}
+                            <div class="message-success">
+                                <p>{{ message }}</p>
+                            </div>
+                        {% endwith %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            <!-- Only show the form if there is no success message -->
+            {% if not has_success %}
+                <div class="form-container">
+                    <header>
+                        <img src="{% static 'img/Home@2x.png' %}" alt="Home" class="home-image">
+                        <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="Congreso Logo" class="logo-image">
+                        <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="ADFAN Logo" class="adfan-image">
+                        <img src="{% static 'img/Heart-Background@4x.png' %}" alt="Heart Background" class="heart-image">
+                        <img src="{% static 'img/Family@4x.png' %}" alt="Family" class="family-image">
+                    </header>
+                    <br><br>
+
+                    <div class="titulo">
+                        <p>¡Comparte tu opinión!</p>
                     </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
 
-        <!-- Only show the form if there is no success message -->
-        {% if not messages or messages|length > 0 and not messages|filter:"success" %}
-            <div class="form-container">
-                <header>
-                    <img src="{% static 'img/Home@2x.png' %}" alt="Home" class="home-image">
-                    <img src="{% static 'img/Logo-Congreso@2x.png' %}" alt="Congreso Logo" class="logo-image">
-                    <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="ADFAN Logo" class="adfan-image">
-                    <img src="{% static 'img/Heart-Background@4x.png' %}" alt="Heart Background" class="heart-image">
-                    <img src="{% static 'img/Family@4x.png' %}" alt="Family" class="family-image">
-                </header>
-                <br><br>
+                    <!-- Form Section -->
+                    <form method="post">
+                        {% csrf_token %}
 
-                <div class="titulo">
-                    <p>¡Comparte tu opinión!</p>
+                        <!-- Category Dropdown -->
+                        <div class="dropdown-container">
+                            <select name="category" class="dropdown">
+                                {% for value, label in form.category.field.choices %}
+                                    <option value="{{ value }}" {% if form.category.value == value %}selected{% endif %}>{{ label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Satisfaction Question -->
+                        <div class="form-satisfaction">
+                            <div class="form-label">
+                                <label>{{ form.satisfaction.label_tag }}</label>
+                            </div>
+                            <div class="radio-group satisfaction-group">
+                                {% for choice in form.satisfaction %}
+                                    <label class="radio-item">
+                                        {{ choice.tag }}
+                                        <span class="custom-radio"></span>
+                                        {{ choice.choice_label }}
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Usefulness Question -->
+                        <div class="form-usefulness">
+                            <div class="form-label">
+                                <label>{{ form.usefulness.label_tag }}</label>
+                            </div>
+                            <div class="radio-group usefulness-group">
+                                {% for choice in form.usefulness %}
+                                    <label class="radio-item {% if forloop.last %}full-width-radio longer-option{% endif %}">
+                                        {{ choice.tag }}
+                                        <span class="custom-radio"></span>
+                                        {{ choice.choice_label }}
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Comments Field -->
+                        <div class="form-comments">
+                            <div class="form-label comment-label">
+                                <label>{{ form.comments.label_tag }}</label>
+                            </div>
+                            {{ form.comments }}
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-button">Someter</button>
+                    </form>
+                    <p class="approve_messg">Aprobado por la OCE-SA-2024-13208</p>
                 </div>
-
-                <!-- Form Section -->
-                <form method="post">
-                    {% csrf_token %}
-
-                    <!-- Category Dropdown -->
-                    <div class="dropdown-container">
-                        <select name="category" class="dropdown">
-                            {% for value, label in form.category.field.choices %}
-                                <option value="{{ value }}" {% if form.category.value == value %}selected{% endif %}>{{ label }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <!-- Satisfaction Question -->
-                    <div class="form-satisfaction">
-                        <div class="form-label">
-                            <label>{{ form.satisfaction.label_tag }}</label>
-                        </div>
-                        <div class="radio-group satisfaction-group">
-                            {% for choice in form.satisfaction %}
-                                <label class="radio-item">
-                                    {{ choice.tag }}  <!-- This renders the input element correctly with name and value -->
-                                    <span class="custom-radio"></span>
-                                    {{ choice.choice_label }}
-                                </label>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!-- Usefulness Question -->
-                    <div class="form-usefulness">
-                        <div class="form-label">
-                            <label>{{ form.usefulness.label_tag }}</label>
-                        </div>
-                        <div class="radio-group usefulness-group">
-                            {% for choice in form.usefulness %}
-                                <label class="radio-item {% if forloop.last %}full-width-radio longer-option{% endif %}">
-                                    {{ choice.tag }}
-                                    <span class="custom-radio"></span>
-                                    {{ choice.choice_label }}
-                                </label>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!-- Comments Field -->
-                    <div class="form-comments">
-                        <div class="form-label comment-label">
-                            <label>{{ form.comments.label_tag }}</label>
-                        </div>
-                        {{ form.comments }}
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="submit-button">Someter</button>
-                </form>
-                <p class="approve_messg">Aprobado por la OCE-SA-2024-13208</p>
-            </div>
-        {% endif %}
+            {% endif %}
+        {% endwith %}
 
         <!-- Display error messages if they exist -->
         {% if messages %}
