@@ -16,7 +16,6 @@
 body, html {
     overflow-x: hidden;
     width: 100%;
-    overflow-y: hidden;
     font-family: 'Ubuntu';
     src: url('/static/fonts/Ubuntu-Regular.ttf') format('truetype');
     font-weight: 400;
