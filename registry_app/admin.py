@@ -87,9 +87,9 @@ class AttendeeAdmin(admin.ModelAdmin):
         attendee = Attendee.objects.get(pk=attendee_id)
         if not attendee.arrived:
             attendee.arrived = True
-            if attendee.table is None or attendee.seat_number is None:
-                attendee.table, attendee.seat_number = self.get_available_seat()
-            attendee.save()
+            # if attendee.table is None or attendee.seat_number is None:
+            #     attendee.table, attendee.seat_number = self.get_available_seat()
+            # attendee.save()
             self.message_user(request, "Attendee marked as arrived and seat assigned.")
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
 
