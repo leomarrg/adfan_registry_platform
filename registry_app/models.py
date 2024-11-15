@@ -54,7 +54,7 @@ class Review(models.Model):
     satisfaction = models.CharField(max_length=50)  # This field should be present
     usefulness = models.CharField(max_length=50)    # This field should be present
     review_date = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(max_length=50)
+    category = models.CharField(max_length=1000)
 
 
     def __str__(self):
