@@ -6,6 +6,9 @@ from django.urls import path
 from .models import Attendee, Table, Review
 from django.http import JsonResponse
 from django.http import HttpResponse
+from django.http import HttpResponse
+import csv
+
 
 
 admin.site.site_header = "Panel de Administración de Congreso Adopción"
@@ -128,6 +131,26 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ('satisfaction', 'usefulness', 'category', 'comments', 'review_date')
     fields = ('satisfaction', 'usefulness', 'category', 'comments', 'review_date')  # Include 'category' in the detail view
 
+    actions = ['export_reviews_to_txt']
+
+    def export_reviews_to_txt(self, request, queryset):
+        # Create the HttpResponse object with plain text content
+        response = HttpResponse(content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename="reviews.txt"'
+
+        # Write the selected reviews to the response
+        for review in queryset:
+            response.write(
+                f"Satisfaction: {review.satisfaction}\n"
+                f"Usefulness: {review.usefulness}\n"
+                f"Category: {review.category}\n"
+                f"Comments: {review.comments}\n"
+                f"Review Date: {review.review_date}\n\n"
+            )
+
+        return response
+
+    export_reviews_to_txt.short_description = "Export selected reviews to text file"
     # Restringir permisos de edición
     def has_change_permission(self, request, obj=None):
         return request.user.has_perm('registry_app.change_review')
