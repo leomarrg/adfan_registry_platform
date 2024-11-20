@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 # registry_app/models.py
 
@@ -59,3 +60,11 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Satisfaction: {self.satisfaction}, Usefulness: {self.usefulness}, Category: {self.category}, Date: {self.review_date}"
+
+class FileDownload(models.Model):
+    file_name = models.CharField(max_length=255)
+    download_count = models.PositiveIntegerField(default=0)
+    display_name = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.file_name

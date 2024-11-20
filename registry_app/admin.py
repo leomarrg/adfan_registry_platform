@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from django.http import HttpResponse
 import csv
+from .models import FileDownload
 
 
 
@@ -154,6 +155,13 @@ class ReviewAdmin(admin.ModelAdmin):
     # Restringir permisos de edición
     def has_change_permission(self, request, obj=None):
         return request.user.has_perm('registry_app.change_review')
+
+@admin.register(FileDownload)
+class FileDownloadAdmin(admin.ModelAdmin):
+    list_display = ('file_name', 'display_name', 'download_count')  # Add display_name here
+    list_editable = ('display_name',)  # Allow editing directly in the list view
+    search_fields = ('file_name', 'display_name')  # Enable search functionality
+    list_filter = ('download_count',)
     
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Table, TableAdmin)

@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from .forms import AttendeeForm, ReviewForm
 from .models import Attendee
 import logging
+from django.http import FileResponse, HttpResponseNotFound
+from django.shortcuts import get_object_or_404, render
+from .models import FileDownload
+from django.conf import settings
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -91,3 +96,22 @@ def pre_registered_list(request):
 def front_desk_registered_list(request):
     attendees = Attendee.objects.filter(registered_at_event=True)
     return render(request, 'registry_app/front_desk_registered_list.html', {'attendees': attendees})
+
+# View for downloading files
+def download_file(request, file_id):
+    # Get the file record from the database
+    file_record = get_object_or_404(FileDownload, id=file_id)
+
+    # Construct the full file path
+    file_path = os.path.join(settings.MEDIA_ROOT, 'files', file_record.file_name)
+
+    # Serve the file or return a 404 if not found
+    try:
+        return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=file_record.file_name)
+    except FileNotFoundError:
+        return HttpResponseNotFound("The requested file does not exist.")
+
+# View for listing files
+def file_list(request):
+    files = FileDownload.objects.all()
+    return render(request, 'registry_app/file_list.html', {'files': files})

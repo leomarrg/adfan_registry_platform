@@ -1,0 +1,42 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Files</title>
+    <link rel="stylesheet" href="{% static 'registry_app/css/download_style.css' %}">
+</head>
+<body>
+    <header>
+        <p class="approve_messg">Aprobado por la OCE-SA-2024-13208</p>
+        <!-- Place logo and additional images inside the body for better layout control -->
+        <div class="logo-wrapper">
+            <img src="{% static 'img/CONGRESO ADOPCION BLANCO_1@2x.png' %}" alt="Logo" class="logo-image">
+        </div>
+        <img src="{% static 'img/Heart-Background@4x.png' %}" alt="Heart Background" class="heart-image">
+    </header>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <!-- Background and additional images -->
+            <img src="{% static 'img/LOGO-ADFAN@2x.png' %}" alt="ADFAN Logo" class="adfan-image">
+            <img src="{% static 'img/Hearts-Background@3x.png' %}" alt="Hearts Background" class="hearts-image">
+            
+            <h3>Accede al contenido informativo presentado en el Congreso</h3>
+            <h7>'Click' para descargar</h7>
+            <!-- File List -->
+            <ul>
+                {% for file in files %}
+                    <li class="file-item">
+                        <a href="{% url 'download_file' file.id %}" class="file-link">
+                            {{ file.display_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
