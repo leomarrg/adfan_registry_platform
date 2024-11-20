@@ -21,5 +21,5 @@ from registry_app import views as registry_views  # Import the views from your r
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('registry/', include('registry_app.urls')),  # Existing registry URLs
-    path('', registry_views.register_attendee, name='home')  # Root URL now points to the register_attendee view
+    path('', registry_views.file_list, name='home'),  # Root URL now points to the register_attendee view
 ]
