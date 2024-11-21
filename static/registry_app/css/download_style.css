@@ -1,14 +1,6 @@
 body {
     background-color: #49a6a2;
-    overflow-y: hidden;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 800px;
-    width: 100%;
+    overflow-x: hidden;
 }
 
 .file-item {
@@ -52,7 +44,7 @@ ul {
     justify-content: center; /* Horizontally center the logo */
     align-items: center; /* Vertically center the logo */
     height: 150px; /* Adjust height based on your layout */
-    margin-top: 50px; /* Move the logo down */
+    margin-top: 30px; /* Move the logo down */
 }
 
 .logo-image {
@@ -93,36 +85,56 @@ ul {
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 275px); /* Adjust height if needed */
+    height: 100%; /* Adjust height if needed */
     background-color: transparent;
     position: relative; /* Allows child elements with absolute positioning */
-    overflow: hidden; /* Prevents images from pushing content */
 }
 
 .form-container {
-    margin-top: 20px;
     z-index: 2; /* Place above background images */
     background: transparent;
     padding: 20px;
     border-radius: 10px;
     width: 58%; /* Adjust as needed */
-    max-width: 800px;
+    max-width: 700px;
+    overflow-y: auto; /* Prevents images from pushing content */
 }
 
-h3, h7 {
-    margin: 10px 0 20px 0; /* Add spacing between the headings */
+h3, h5 {
+    margin: 7px 0 15px 0; /* Add spacing between the headings */
     color: white
 }
 
-.h7 {
-    margin-bottom: 20px;
-}
 
 .approve_messg {
     text-align: center; /* Center the text horizontally */
     font-size: 0.8rem; /* Adjust font size to make it smaller */
     color: #ffffff; /* Change font color to white */
     margin: 10px 0; /* Add some vertical spacing */
+}
+
+.video-wrapper {
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    background-color: rgba(233,163,185,255);
+    border-radius: 10px;
+    margin: 3px;
+    padding: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.video-item {
+    margin: -48px 3px 7px 3px;
+}
+
+p {
+    color: #fff;
+    font-weight: 600;
 }
 
 

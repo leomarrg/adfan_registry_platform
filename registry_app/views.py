@@ -98,20 +98,24 @@ def front_desk_registered_list(request):
     return render(request, 'registry_app/front_desk_registered_list.html', {'attendees': attendees})
 
 # View for downloading files
+logger = logging.getLogger(__name__)
+
 def download_file(request, file_id):
-    # Get the file record from the database
     file_record = get_object_or_404(FileDownload, id=file_id)
 
-    # Construct the full file path
-    file_path = os.path.join(settings.MEDIA_ROOT, 'files', file_record.file_name)
+    # Use the file's path attribute
+    file_path = file_record.file.path
+    logger.info(f"Attempting to serve file: {file_path}")
 
-    # Serve the file or return a 404 if not found
     try:
-        return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=file_record.file_name)
+        return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=os.path.basename(file_path))
     except FileNotFoundError:
+        logger.error(f"File not found: {file_path}")
         return HttpResponseNotFound("The requested file does not exist.")
 
 # View for listing files
 def file_list(request):
-    files = FileDownload.objects.all()
-    return render(request, 'registry_app/file_list.html', {'files': files})
+    videos = FileDownload.objects.filter(is_video=True)
+    files = FileDownload.objects.filter(is_video=False)
+    print(videos)  # Debugging: Make sure you have videos
+    return render(request, 'registry_app/file_list.html', {'videos': videos, 'files': files})

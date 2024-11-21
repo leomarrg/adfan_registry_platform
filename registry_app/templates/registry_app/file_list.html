@@ -25,17 +25,32 @@
             <img src="{% static 'img/Hearts-Background@3x.png' %}" alt="Hearts Background" class="hearts-image">
             
             <h3>Accede al contenido informativo presentado en el Congreso</h3>
-            <h7>'Click' para descargar</h7>
+            <h5>'Click' para descargar</h5>
+
+            <!-- Video List -->
+            <div class="video-wrapper">
+                {% for video in videos %}
+                <p>{{ video.display_name }}</p>
+                    <div class="video-item">
+                        
+                        <video controls width="400" height="320">
+                            <source src="{{ video.file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                {% endfor %}
+            </div>
+
             <!-- File List -->
-            <ul>
+            <div>
                 {% for file in files %}
-                    <li class="file-item">
+                    <div class="file-item">
                         <a href="{% url 'download_file' file.id %}" class="file-link">
                             {{ file.display_name }}
                         </a>
-                    </li>
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </div>
 </body>

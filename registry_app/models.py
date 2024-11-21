@@ -62,9 +62,10 @@ class Review(models.Model):
         return f"Satisfaction: {self.satisfaction}, Usefulness: {self.usefulness}, Category: {self.category}, Date: {self.review_date}"
 
 class FileDownload(models.Model):
-    file_name = models.CharField(max_length=255)
+    file = models.FileField(upload_to='files/', default='files/placeholder.txt')  # Add default value
     download_count = models.PositiveIntegerField(default=0)
     display_name = models.TextField(blank=True, null=True)
+    is_video = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.file_name
+        return str(self.display_name) if self.display_name else str(self.file)
