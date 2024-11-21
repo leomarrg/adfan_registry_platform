@@ -88,6 +88,7 @@ body {
     height: 100%; /* Adjust height if needed */
     background-color: transparent;
     position: relative; /* Allows child elements with absolute positioning */
+    color: white;
 }
 
 .form-container {

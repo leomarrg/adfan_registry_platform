@@ -122,7 +122,7 @@ class AttendeeAdmin(admin.ModelAdmin):
                 return available_table, available_seat
 
         return None, None  # If no seats are available
-    
+
 
 class TableAdmin(admin.ModelAdmin):
     list_display = ('table_number', 'max_seats')  # Display table number and max seats
@@ -162,7 +162,7 @@ class FileDownloadAdmin(admin.ModelAdmin):
     list_editable = ('display_name',)  # Allow editing directly in the list view
     search_fields = ('file', 'display_name')  # Enable search functionality
     list_filter = ('download_count',)
-    
+
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Table, TableAdmin)
 admin.site.register(Review, ReviewAdmin)
