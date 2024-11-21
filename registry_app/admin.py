@@ -158,15 +158,9 @@ class ReviewAdmin(admin.ModelAdmin):
 
 @admin.register(FileDownload)
 class FileDownloadAdmin(admin.ModelAdmin):
-<<<<<<< HEAD
-    list_display = ('file_name', 'display_name', 'download_count')  # Add display_name here
-    list_editable = ('display_name',)  # Allow editing directly in the list view
-    search_fields = ('file_name', 'display_name')  # Enable search functionality
-=======
     list_display = ('file', 'display_name', 'download_count')  # Add display_name here
     list_editable = ('display_name',)  # Allow editing directly in the list view
     search_fields = ('file', 'display_name')  # Enable search functionality
->>>>>>> 1d078eb99af9dfc5d1b5e2907148b641fb8c0e24
     list_filter = ('download_count',)
     
 admin.site.register(Attendee, AttendeeAdmin)

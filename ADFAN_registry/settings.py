@@ -80,7 +80,6 @@ WSGI_APPLICATION = 'ADFAN_registry.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-<<<<<<< HEAD
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
@@ -106,33 +105,6 @@ DATABASES = {
 #         'PORT': '3306',
 #     }
 # }
-=======
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
-#         'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
-#         #'NAME': 'adfan_registry_db', #name for database in local server
-#         'USER': 'leomarrg',
-#         'PASSWORD': 'Italia1578UPRA',
-#         'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
-#         #'HOST': 'localhost', #name for host in local server
-#         'PORT': '3306',
-#     }
-# }
-# database for running web app locally
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # MariaDB uses the same MySQL backend
-        #'NAME': 'leomarrg$adfan_registry_db_pythonanywhere',
-        'NAME': 'adfan_registry_db', #name for database in local server
-        'USER': 'leomarrg',
-        'PASSWORD': 'Italia1578UPRA',
-        #'HOST': 'leomarrg.mysql.pythonanywhere-services.com',
-        'HOST': 'localhost', #name for host in local server
-        'PORT': '3306',
-    }
-}
->>>>>>> 1d078eb99af9dfc5d1b5e2907148b641fb8c0e24
 
 
 # Password validation
