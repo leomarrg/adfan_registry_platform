@@ -38,8 +38,12 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                {% endfor %}
+                    {% empty %}
+                <div class="no-videos">
+                    <p>No videos are available at the moment.</p>
+                </div>
             </div>
+            {% endfor %}
 
             <!-- File List -->
             <div>
