@@ -10,7 +10,7 @@ class Table(models.Model):
 
     def __str__(self):
         return f"Table {self.table_number}"
-    
+
     def current_attendees_count(self):
         return self.attendee_set.filter(arrived=True).count()
 
@@ -32,7 +32,7 @@ class Attendee(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.last_name}"
-    
+
     def save(self, *args, **kwargs):
         if self.arrived and not self.table:
             self.assign_table_and_seat()
@@ -62,9 +62,11 @@ class Review(models.Model):
         return f"Satisfaction: {self.satisfaction}, Usefulness: {self.usefulness}, Category: {self.category}, Date: {self.review_date}"
 
 class FileDownload(models.Model):
-    file_name = models.CharField(max_length=255)
+    file = models.FileField(upload_to='files/', default='files/placeholder.txt')  # Add default value
     download_count = models.PositiveIntegerField(default=0)
     display_name = models.TextField(blank=True, null=True)
+    is_video = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.file_name
+        return str(self.display_name) if self.display_name else str(self.file)
+

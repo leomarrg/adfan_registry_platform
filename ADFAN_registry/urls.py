@@ -17,9 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from registry_app import views as registry_views  # Import the views from your registry_app
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('registry/', include('registry_app.urls')),  # Existing registry URLs
     path('', registry_views.file_list, name='home'),  # Root URL now points to the register_attendee view
 ]
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
