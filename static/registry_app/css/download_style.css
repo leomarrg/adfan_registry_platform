@@ -53,7 +53,7 @@ body {
 }
 
 .adfan-image {
-    position: fixed; /* Keeps it in place while scrolling */
+    position: absolute; /* Keeps it in place while scrolling */
     top: 4%; /* Adjust as needed */
     right: 3%;
     max-width: 220px; /* Control size */
