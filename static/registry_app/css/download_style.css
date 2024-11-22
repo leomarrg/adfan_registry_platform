@@ -383,7 +383,7 @@ iframe {
     
     .adfan-image {
         position: absolute; /* Keeps it in place while scrolling */
-        top: 12%; /* Adjust as needed */
+        top: 7%; /* Adjust as needed */
         right: 1%;
         height: 70px;
         z-index: 1; /* Ensure it’s above other content but below the form */
@@ -481,7 +481,7 @@ iframe {
     .responsive-img {
         display: block;
         position: absolute;
-        top: 15%;
+        top: 12%;
     }
 
     .home-image {
