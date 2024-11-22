@@ -485,10 +485,10 @@ iframe {
     }
 
     .home-image {
-        height: 55px;
+        height: 35px;
         display: block;
         position: absolute;
-        margin-top: -80px;
+        margin-top: -70px;
     }
 
 }
