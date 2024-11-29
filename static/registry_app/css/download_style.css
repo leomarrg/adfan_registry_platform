@@ -1,16 +1,18 @@
+/* General Styles */
 body {
     background-color: #49a6a2;
     overflow-x: hidden;
 }
 
+/* File Item Styles */
 .file-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    background-color: rgba(233,163,185,255);
+    background-color: rgba(233, 163, 185, 1);
     border-radius: 10px;
-    padding: 30px 10px 30px 10px;
+    padding: 30px 10px;
     margin: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -26,639 +28,137 @@ body {
 
 .file-link:hover {
     text-decoration: underline;
-    color: #ffffff;
 }
 
-.file-info {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 0.9rem;
-    color: #555555;
-    margin-left: 15px;
-    background-color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
+/* Logo and Images */
 .logo-wrapper {
     display: flex;
-    justify-content: center; /* Horizontally center the logo */
-    align-items: center; /* Vertically center the logo */
-    height: 150px; /* Adjust height based on your layout */
-    margin-top: 30px; /* Move the logo down */
+    align-items: center;
+    justify-content: space-between; /* Align images from left to right */
+    gap: 20px;
+    padding: 20px;
 }
 
-.logo-image {
-    max-width: 100%;
-    height: 150px; /* Maintain aspect ratio */
-}
-
-.adfan-image {
-    position: absolute; /* Keeps it in place while scrolling */
-    top: -23%; /* Adjust as needed */
-    right: 3%;
-    max-width: 220px; /* Control size */
+.logo-image, .adfan-image, .home-image {
+    max-height: 150px; /* Adjusted for consistent size */
     height: auto;
-    z-index: 1; /* Ensure it’s above other content but below the form */
+    max-width: 100%;
+}
+
+/* Specific Image Adjustments */
+.adfan-image {
+    position: relative;
+    max-height: 150px;
 }
 
 .heart-image {
     position: absolute;
-    bottom: -20%; /* Push slightly below the visible area */
+    bottom: -20%;
     right: -10%;
-    max-height: 900px; /* Adjust based on your design */
-    z-index: -1; /* Ensure it’s behind content */
-    opacity: .3;
+    max-height: 900px;
+    z-index: -1;
+    opacity: 0.3;
 }
 
-.hearts-image {
-    position: absolute;
-    top: 3%;
-    left: -2%;
-    height: 350px;
-    z-index: -5;
-
-}
-
+/* Form and Wrapper */
 .form-wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Adjust height if needed */
+    padding: 20px;
     background-color: transparent;
-    position: relative; /* Allows child elements with absolute positioning */
     color: white;
 }
 
 .form-container {
-    z-index: 2; /* Place above background images */
+    z-index: 2;
     background: transparent;
     padding: 20px;
     border-radius: 10px;
-    width: 58%; /* Adjust as needed */
+    width: 80%; /* Flexible width */
     max-width: 700px;
-    overflow-y: auto; /* Prevents images from pushing content */
+    overflow-y: auto;
 }
 
 h3, h5 {
-    margin: 7px 0 15px 0; /* Add spacing between the headings */
-    color: rgb(255, 255, 255)
+    margin: 10px 0;
+    color: white;
 }
 
-
-.approve_messg {
-    text-align: center; /* Center the text horizontally */
-    font-size: 0.8rem; /* Adjust font size to make it smaller */
-    color: #ffffff; /* Change font color to white */
-    margin: 10px 0; /* Add some vertical spacing */
-}
-
+/* Video Wrapper */
 .video-wrapper {
     display: grid;
     justify-content: center;
-    place-items: center;
     align-items: center;
     text-align: center;
-    height: auto;
-    background-color: rgba(233,163,185,255);
+    background-color: rgba(233, 163, 185, 1);
     border-radius: 10px;
-    margin: 3px;
-    padding: 3px;
+    margin: 20px 0;
+    padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-}
-
-.video-item {
-    margin: -48px 3px 7px 3px;
-}
-
-p {
-    color: #fff;
-    font-weight: 600;
-}
-
-.title-p {
-    margin: 10px 10px 10px 10px;
 }
 
 iframe {
-    margin-bottom: -65px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     margin-top: 10px;
 }
 
-.responsive-img {
-    display: none;
-}
-
-
 /* Responsive Styling */
+@media (max-width: 1024px) {
+    .logo-wrapper {
+        flex-direction: column; /* Stack images vertically */
+        gap: 10px;
+    }
+
+    .file-item {
+        flex-direction: column; /* Stack file info vertically */
+        padding: 20px;
+    }
+
+    .form-container {
+        width: 90%;
+    }
+
+    iframe {
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 768px) {
-
-    body {
-        background-color: #49a6a2;
-        overflow-x: hidden;
-        font-size: 12px;
-    }
-    
-    .file-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        background-color: rgba(233,163,185,255);
-        border-radius: 10px;
-        padding: 30px 10px 30px 10px;
-        margin: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .file-link {
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: bold;
-        font-size: 1rem;
-        color: #ffffff;
-        text-decoration: none;
-        flex: 1;
-    }
-    
-    .file-link:hover {
-        text-decoration: underline;
-        color: #ffffff;
-    }
-    
-    .file-info {
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 0.9rem;
-        color: #555555;
-        margin-left: 15px;
-        background-color: #ffffff;
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
-    
     .logo-wrapper {
-        display: flex;
-        justify-content: center; /* Horizontally center the logo */
-        align-items: center; /* Vertically center the logo */
-        height: 65px; /* Adjust height based on your layout */
-        margin-top: 30px; /* Move the logo down */
-    }
-    
-    .logo-image {
-        max-width: 100%;
-        height: 65px; /* Maintain aspect ratio */
-    }
-    
-    .adfan-image {
-        position: absolute; /* Keeps it in place while scrolling */
-        top: -12%; /* Adjust as needed */
-        right: 1%;
-        height: 90px;
-        z-index: 1; /* Ensure it’s above other content but below the form */
-    }
-    
-    .heart-image {
-        position: absolute;
-        bottom: -20%; /* Push slightly below the visible area */
-        right: -10%;
-        max-height: 200px; /* Adjust based on your design */
-        z-index: -1; /* Ensure it’s behind content */
-        opacity: .3;
-    }
-    
-    .hearts-image {
-        position: absolute;
-        top: 3%;
-        left: -2%;
-        height: 350px;
-        z-index: -5;
-    
-    }
-    
-    .form-wrapper {
-        display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Stack images for smaller devices */
         text-align: center;
-        align-items: center;
-        justify-content: center;
-        height: 100%; /* Adjust height if needed */
-        background-color: transparent;
-        position: relative; /* Allows child elements with absolute positioning */
-        color: white;
     }
-    
-    .form-container {
-        z-index: 2; /* Place above background images */
-        background: transparent;
-        padding: 20px;
-        border-radius: 10px;
-        width: 58%; /* Adjust as needed */
-        max-width: 700px;
-        overflow-y: auto; /* Prevents images from pushing content */
+
+    .logo-image, .adfan-image, .home-image {
+        max-height: 100px;
     }
-    
-    h3, h5 {
-        margin: 7px 0 15px 0; /* Add spacing between the headings */
-        color: rgb(255, 255, 255)
-    }
-    
-    
-    .approve_messg {
-        text-align: center; /* Center the text horizontally */
-        font-size: 8px; /* Adjust font size to make it smaller */
-        color: #ffffff; /* Change font color to white */
-        margin: 10px 0; /* Add some vertical spacing */
-    }
-    
-    .video-wrapper {
-        display: grid;
-        justify-content: center;
-        place-items: center;
-        align-items: center;
-        text-align: center;
-        height: auto;
-        background-color: rgba(233,163,185,255);
-        border-radius: 10px;
-        margin: 3px;
-        padding: 3px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-    }
-    
-    .video-item {
-        margin: -48px 3px 7px 3px;
-    }
-    
-    p {
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .title-p {
-        margin: 10px 10px 10px 10px;
-        font-size: 12px;
-    }
-    
+
     iframe {
-        margin-bottom: -135px;
-        margin-top: 10px;
-        width: 275px;
-        height: 310px;
+        max-width: 100%;
+        height: auto;
     }
-
-    .responsive-img {
-        display: block;
-        position: absolute;
-        top: 15%;
-    }
-
-    .home-image {
-        height: 100px;
-        display: block;
-        position: absolute;
-        margin-top: -90px;
-    }
-
-
-
 }
 
-@media (max-width: 450px) {
-
-    body {
-        background-color: #49a6a2;
-        overflow-x: hidden;
-        font-size: 12px;
-    }
-    
-    .file-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        background-color: rgba(233,163,185,255);
-        border-radius: 10px;
-        padding: 30px 10px 30px 10px;
-        margin: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .file-link {
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: bold;
-        font-size: 1rem;
-        color: #ffffff;
-        text-decoration: none;
-        flex: 1;
-    }
-    
-    .file-link:hover {
-        text-decoration: underline;
-        color: #ffffff;
-    }
-    
-    .file-info {
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 0.9rem;
-        color: #555555;
-        margin-left: 15px;
-        background-color: #ffffff;
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
-    
-    .logo-wrapper {
-        display: flex;
-        justify-content: center; /* Horizontally center the logo */
-        align-items: center; /* Vertically center the logo */
-        height: 65px; /* Adjust height based on your layout */
-        margin-top: 30px; /* Move the logo down */
-    }
-    
-    .logo-image {
-        max-width: 100%;
-        height: 55px; /* Maintain aspect ratio */
-    }
-    
-    .adfan-image {
-        position: absolute; /* Keeps it in place while scrolling */
-        top: 5%; /* Adjust as needed */
-        right: 1%;
-        height: 70px;
-        z-index: 1; /* Ensure it’s above other content but below the form */
-    }
-    
-    .heart-image {
-        position: absolute;
-        bottom: -20%; /* Push slightly below the visible area */
-        right: -10%;
-        max-height: 200px; /* Adjust based on your design */
-        z-index: -1; /* Ensure it’s behind content */
-        opacity: .3;
-    }
-    
-    .hearts-image {
-        position: absolute;
-        top: 3%;
-        left: -2%;
-        height: 350px;
-        z-index: -5;
-    
-    }
-    
-    .form-wrapper {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        height: 100%; /* Adjust height if needed */
-        background-color: transparent;
-        position: relative; /* Allows child elements with absolute positioning */
-        color: white;
-    }
-    
-    .form-container {
-        z-index: 2; /* Place above background images */
-        background: transparent;
-        padding: 20px;
-        border-radius: 10px;
-        width: 58%; /* Adjust as needed */
-        max-width: 700px;
-        overflow-y: auto; /* Prevents images from pushing content */
-    }
-    
+@media (max-width: 480px) {
     h3, h5 {
-        margin: 7px 0 15px 0; /* Add spacing between the headings */
-        color: rgb(255, 255, 255)
-    }
-    
-    
-    .approve_messg {
-        text-align: center; /* Center the text horizontally */
-        font-size: 8px; /* Adjust font size to make it smaller */
-        color: #ffffff; /* Change font color to white */
-        margin: 10px 0; /* Add some vertical spacing */
-    }
-    
-    .video-wrapper {
-        display: grid;
-        justify-content: center;
-        place-items: center;
-        align-items: center;
-        text-align: center;
-        height: auto;
-        background-color: rgba(233,163,185,255);
-        border-radius: 10px;
-        margin: 3px;
-        padding: 3px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-    }
-    
-    .video-item {
-        margin: -48px 3px 7px 3px;
-    }
-    
-    p {
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .title-p {
-        margin: 10px 10px 10px 10px;
-        font-size: 12px;
-    }
-    
-    iframe {
-        margin-bottom: -135px;
-        margin-top: 5px;
-        width: 175px;
-        height: 250px;
+        font-size: 1rem; /* Adjust font size */
     }
 
-    .responsive-img {
-        display: block;
-        position: absolute;
-        top: 13%;
-    }
-
-    .home-image {
-        height: 70px;
-        display: block;
-        position: absolute;
-        margin-top: -70px;
-    }
-
-}
-
-
-@media (max-width: 375px) {
-
-    body {
-        background-color: #49a6a2;
-        overflow-x: hidden;
-        font-size: 12px;
-    }
-    
     .file-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        background-color: rgba(233,163,185,255);
-        border-radius: 10px;
-        padding: 30px 10px 30px 10px;
-        margin: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .file-link {
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: bold;
-        font-size: 1rem;
-        color: #ffffff;
-        text-decoration: none;
-        flex: 1;
-    }
-    
-    .file-link:hover {
-        text-decoration: underline;
-        color: #ffffff;
-    }
-    
-    .file-info {
-        font-family: 'Ubuntu', sans-serif;
+        padding: 15px;
         font-size: 0.9rem;
-        color: #555555;
-        margin-left: 15px;
-        background-color: #ffffff;
-        padding: 5px 10px;
-        border-radius: 5px;
     }
-    
-    .logo-wrapper {
-        display: flex;
-        justify-content: center; /* Horizontally center the logo */
-        align-items: center; /* Vertically center the logo */
-        height: 65px; /* Adjust height based on your layout */
-        margin-top: 30px; /* Move the logo down */
+
+    .logo-image, .adfan-image, .home-image {
+        max-height: 80px;
     }
-    
-    .logo-image {
-        max-width: 100%;
-        height: 55px; /* Maintain aspect ratio */
-    }
-    
-    .adfan-image {
-        position: absolute; /* Keeps it in place while scrolling */
-        top: 15%; /* Adjust as needed */
-        right: 1%;
-        height: 60px;
-        z-index: 1; /* Ensure it’s above other content but below the form */
-    }
-    
-    .heart-image {
-        position: absolute;
-        bottom: -20%; /* Push slightly below the visible area */
-        right: -10%;
-        max-height: 200px; /* Adjust based on your design */
-        z-index: -1; /* Ensure it’s behind content */
-        opacity: .3;
-    }
-    
-    .hearts-image {
-        position: absolute;
-        top: 3%;
-        left: -2%;
-        height: 350px;
-        z-index: -5;
-    
-    }
-    
-    .form-wrapper {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        height: 100%; /* Adjust height if needed */
-        background-color: transparent;
-        position: relative; /* Allows child elements with absolute positioning */
-        color: white;
-    }
-    
-    .form-container {
-        z-index: 2; /* Place above background images */
-        background: transparent;
-        padding: 20px;
-        border-radius: 10px;
-        width: 58%; /* Adjust as needed */
-        max-width: 700px;
-        overflow-y: auto; /* Prevents images from pushing content */
-    }
-    
-    h3, h5 {
-        margin: 7px 0 15px 0; /* Add spacing between the headings */
-        color: rgb(255, 255, 255)
-    }
-    
-    
-    .approve_messg {
-        text-align: center; /* Center the text horizontally */
-        font-size: 8px; /* Adjust font size to make it smaller */
-        color: #ffffff; /* Change font color to white */
-        margin: 10px 0; /* Add some vertical spacing */
-    }
-    
-    .video-wrapper {
-        display: grid;
-        justify-content: center;
-        place-items: center;
-        align-items: center;
-        text-align: center;
-        height: auto;
-        background-color: rgba(233,163,185,255);
-        border-radius: 10px;
-        margin: 3px;
-        padding: 3px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-    }
-    
-    .video-item {
-        margin: -48px 3px 7px 3px;
-    }
-    
-    p {
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .title-p {
-        margin: 10px 10px 10px 10px;
-        font-size: 12px;
-    }
-    
+
     iframe {
-        margin-bottom: -135px;
-        margin-top: 5px;
-        width: 175px;
-        height: 250px;
+        max-width: 90%;
     }
-
-    .responsive-img {
-        display: block;
-        position: absolute;
-        top: 15%;
-    }
-
-    .home-image {
-        height: 45px;
-        display: block;
-        position: absolute;
-        margin-top: -70px;
-    }
-
 }

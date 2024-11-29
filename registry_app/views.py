@@ -104,7 +104,7 @@ def download_file(request, file_id):
     # Use the file's path attribute
     file_path = file_record.file.path
     logger.info(f"Attempting to serve file: {file_path}")
-
+    logger.info(f"Full file path: {file_path}")
     try:
         return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=os.path.basename(file_path))
     except FileNotFoundError:
