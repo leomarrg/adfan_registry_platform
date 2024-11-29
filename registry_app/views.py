@@ -100,11 +100,12 @@ def front_desk_registered_list(request):
 # View for downloading files
 def download_file(request, file_id):
     file_record = get_object_or_404(FileDownload, id=file_id)
+    file_path = os.path.join(settings.MEDIA_ROOT, file_record.file.name)
 
-    # Use the file's path attribute
-    file_path = file_record.file.path
     logger.info(f"Attempting to serve file: {file_path}")
-    logger.info(f"Full file path: {file_path}")
+    logger.info(f"MEDIA_ROOT: {settings.MEDIA_ROOT}")
+    logger.info(f"File name in database: {file_record.file.name}")
+
     try:
         return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=os.path.basename(file_path))
     except FileNotFoundError:
