@@ -34,7 +34,7 @@ body {
 .logo-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Align images from left to right */
+    justify-content: center; /* Align images from left to right */
     gap: 20px;
     padding: 20px;
 }
@@ -45,10 +45,14 @@ body {
     max-width: 100%;
 }
 
+.home-image {
+    top: 10%;
+    display: absolute;
+}
+
 /* Specific Image Adjustments */
 .adfan-image {
-    position: relative;
-    max-height: 150px;
+    max-height: 250px;
 }
 
 .heart-image {
@@ -107,6 +111,27 @@ iframe {
     margin-top: 10px;
 }
 
+p {
+    justify-content: center;
+    text-align: center;
+    font-size: x-small;
+    color: white;
+    font-weight: 600;
+}
+
+.responsive-img {
+    display: none;
+}
+
+.adfan-image {
+    position: absolute;
+    right: 4%;
+    top: 7%;
+    height: 110px;
+}
+
+
+
 /* Responsive Styling */
 @media (max-width: 1024px) {
     .logo-wrapper {
@@ -126,6 +151,10 @@ iframe {
     iframe {
         max-width: 90%;
     }
+
+    .responsive-img {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -141,6 +170,20 @@ iframe {
     iframe {
         max-width: 100%;
         height: auto;
+    }
+    .responsive-img {
+        display: block;
+        position: absolute;
+        top: 7%;
+        left: 4%;
+    }
+
+    .home-image {
+        height: 80px;
+    }
+
+    .adfan-image{
+        height: 80px;
     }
 }
 
