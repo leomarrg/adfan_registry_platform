@@ -97,10 +97,10 @@ def front_desk_registered_list(request):
     attendees = Attendee.objects.filter(registered_at_event=True)
     return render(request, 'registry_app/front_desk_registered_list.html', {'attendees': attendees})
 
-# View for downloading files
 def download_file(request, file_id):
     file_record = get_object_or_404(FileDownload, id=file_id)
-    file_path = os.path.join(settings.MEDIA_ROOT, file_record.file.name)
+    folder = "videos" if file_record.is_video else "files"
+    file_path = os.path.join(settings.MEDIA_ROOT, folder, file_record.file.name)
 
     logger.info(f"Attempting to serve file: {file_path}")
     logger.info(f"MEDIA_ROOT: {settings.MEDIA_ROOT}")
@@ -111,6 +111,7 @@ def download_file(request, file_id):
     except FileNotFoundError:
         logger.error(f"File not found: {file_path}")
         return HttpResponseNotFound("The requested file does not exist.")
+
 
 # View for listing files
 def file_list(request):
