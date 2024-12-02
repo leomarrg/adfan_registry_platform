@@ -204,4 +204,12 @@ p {
     iframe {
         max-width: 90%;
     }
+
+    .home-image {
+        height: 50px;
+    }
+
+    .adfan-image{
+        height: 50px;
+    }
 }
